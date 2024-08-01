@@ -51,10 +51,10 @@ export default function Choose() {
           </div> */}
         </div>
         <div className=" md:w-[40%]">
-          <h2 className="text-[16px] font-[700] leading-[25px] mb-2">
+          <h2 className="text-[13px] md:text-[16px] font-[700] leading-[25px] mb-2">
             WHY CHOOSE US
           </h2>
-          <h1 className="text-[24px] font-[700] leading-[36px] mb-6">
+          <h1 className="text-[15px] md:text-[24px] font-[700] leading-[36px] mb-6">
             We offer the best experience with our rental deals
           </h1>
           <div className="space-y-4">

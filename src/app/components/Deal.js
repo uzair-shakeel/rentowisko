@@ -38,10 +38,10 @@ const deals = [
 const Deal = () => {
   return (
     <div className="max-w-7xl mx-auto py-8">
-      <h2 className="text-[16px] text-[#8F8C8C] font-[700] leading-[25px] text-center mb-3">
+      <h2 className="text-[13px] md:text-[16px] text-[#8F8C8C] font-[700] leading-[25px] text-center md:mb-3">
         POPULAR RENTAL DEALS
       </h2>
-      <h2 className="text-[28px] font-[700] leading-[43px] text-center mb-14">
+      <h2 className="text-[15px] md:text-[28px] font-[700] leading-[43px] text-center mb-3 md:mb-8 lg:mb-14">
         Most popular cars rental deals
       </h2>
       <div className="py-14 px-[8%]">
