@@ -1,7 +1,9 @@
+import Image from "next/image";
+
 // pages/index.js
 export default function Hero() {
   return (
-    <div className="flex flex-col h-[500px] bg-[#F5F6FB]">
+    <div className="flex flex-col   bg-[#F5F6FB]">
       {/* <header className="bg-white p-4 shadow">
         <div className="container mx-auto flex justify-between items-center">
           <div className="text-xl font-bold">Rentowisko</div>
@@ -18,14 +20,14 @@ export default function Hero() {
           </nav>
         </div>
       </header> */}
-      <main className="relative flex-1 container mx-auto p-6">
-        <div className=" grid grid-cols-1 md:grid-cols-2 gap-6 px-12">
-          <div className="flex flex-col justify-center">
-            <h1 className="text-[55px] font-[700] leading-tight mb-4">
+      <main className="">
+        <div className=" grid grid-cols-2 gap-2">
+          <div className="flex flex-col justify-center pl-[75px]">
+            <h1 className="text-[55px] font-[700] leading-tight mb-4 max-w-[480px] w-full">
               Find, book, and rental car in{" "}
               <span className="text-blue-500">Easy</span> steps.
             </h1>
-            <p className="text-[#B3B0B0] leading-[25px] mb-6 text-[16px] py-4 font-[500]">
+            <p className="text-[#B3B0B0] leading-[25px] mb-6 max-w-[496px] w-full text-[16px] py-4 font-medium">
               Revolutionize your car rental experience with the cutting-edge
               power of Artificial Intelligence at Rentowisko. We've seamlessly
               merged the convenience of modern technology with the freedom of
@@ -33,18 +35,14 @@ export default function Hero() {
               extraordinary journey.
             </p>
           </div>
-          <div></div>
-        </div>
-        {/* <div className=" flex justify-center">
-          <div className="h-[400px] w-auto overflow-hidden">
-            <img
-              src="/Hero-img.png"
+            <Image
+              src="/car.svg"
               alt="Car"
-              className="absolute top-0 left-[400px]  w-full h-full object-cover"
-            />
-          </div>
-        </div> */}
-        <div className="mt-14 w-[90%] mx-auto rounded-3xl bg-white p-4 px-8  shadow">
+              width={941}
+              height={499}
+            />           
+        </div>
+        <div className="  w-[90%] mx-auto rounded-3xl bg-white p-4 px-8  shadow">
           <div className="flex w-full">
             <div className="border-r border-[#E8E4E4] w-[25%]">
               <p className="text-[12px] font-[800] uppercase pb-2">Location</p>
