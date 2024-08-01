@@ -1,9 +1,9 @@
 // components/Choose.js
 export default function Choose() {
   return (
-    <div className="bg-white py-12">
-      <div className="container px-[8%] mx-auto flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0 md:space-x-12">
-        <div className="flex-1 w-[40%]">
+    <div className="bg-white py-5 lg:py-12">
+      <div className="container px-[5%] lg:px-[8%] mx-auto flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0 md:space-x-12">
+        <div className="hidden md:flex-1 md:w-[40%]">
           <img src="/Choose-img.png" alt="Main Car" className="max-w-full" />
           {/* <div className="flex space-x-4 mt-4">
             <div className="border p-2 rounded">
@@ -50,7 +50,7 @@ export default function Choose() {
             </div>
           </div> */}
         </div>
-        <div className=" w-[40%]">
+        <div className=" md:w-[40%]">
           <h2 className="text-[16px] font-[700] leading-[25px] mb-2">
             WHY CHOOSE US
           </h2>

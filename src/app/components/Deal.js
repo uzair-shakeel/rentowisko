@@ -1,5 +1,6 @@
 import React from "react";
-import Image from "/public/car-img1.png";
+import "../globals.css";
+
 const deals = [
   {
     name: "Koenigsegg",
@@ -71,12 +72,13 @@ const Deal = () => {
                   </span>
                 ))}
               </div>
-              <div className="h-40 w-full">
+              <div className="h-40 w-full relative">
                 <img
                   src={deal.imageUrl}
                   alt={deal.name}
                   className="w-full h-auto max-h-24  object-cover mb-4"
                 />
+                <span className="absolute h-full w-full gradient bottom-0"></span>
               </div>
               <div className="flex flex-col justify-between h-24">
                 <div className="text-gray-700 mb-2 flex justify-between">

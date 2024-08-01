@@ -7,7 +7,7 @@ const FAQ = () => {
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
 
   return (
-    <div className="py-12 px-[14%] ">
+    <div className="py-12 px-[5%] md:px-[9%] lg:px-[14%] ">
       <h2 className="text-[28px] text-center font-[700] leading-[43px] py-5">
         Frequently Asked Questions
       </h2>
