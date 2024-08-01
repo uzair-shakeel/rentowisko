@@ -1,5 +1,6 @@
 import Choose from "./components/Choose";
 import Deal from "./components/Deal";
+import FAQ from "./components/FAQ";
 import Hero from "./components/Hero";
 import Review from "./components/reviews";
 import Sidebar from "./components/Sidebar";
@@ -15,6 +16,7 @@ export default function Home() {
       <Choose />
       <Deal />
       <Review />
+      <FAQ />
     </div>
   );
 }
