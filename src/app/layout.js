@@ -3,6 +3,7 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 import { NextUIProvider } from "@nextui-org/react";
+import Layout from "./components/SidebarLayout";
 
 export const metadata = {
   title: "Create Next App",

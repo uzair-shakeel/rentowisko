@@ -4,19 +4,19 @@ import FAQ from "./components/FAQ";
 import Hero from "./components/Hero";
 import Review from "./components/reviews";
 import Sidebar from "./components/Sidebar";
+import Layout from "./components/SidebarLayout";
 import Works from "./components/Works";
 
 // pages/index.js
 export default function Home() {
   return (
-    <div>
-      {/* <Sidebar /> */}
+    <Layout>
       <Hero />
       <Works />
       <Choose />
       <Deal />
       <Review />
       <FAQ />
-    </div>
+    </Layout>
   );
 }
