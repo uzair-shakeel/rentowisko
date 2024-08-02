@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import { FaHome, FaCar, FaUserCircle, FaCog } from "react-icons/fa";
 import { RiMenuFill } from "react-icons/ri";
+import { FaHeart } from "react-icons/fa";
+import { IoIosNotifications, IoMdSettings } from "react-icons/io";
 
 const Layout = ({ children }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -69,9 +71,18 @@ const Layout = ({ children }) => {
         {/* Header */}
         <header className="h-16 bg-white flex items-center shadow-md justify-end px-4">
           <div className="flex items-center space-x-4">
-            <button className="px-4 py-2 text-sm bg-blue-500 text-white rounded">
-              Profile
+            <button className="border border-[#C3D4E9]/40 text-[#3D5278] rounded-full w-[44px] h-[44px] flex items-center justify-center">
+              <FaHeart size={20} />
             </button>
+            <button className="border border-[#C3D4E9]/40 text-[#3D5278] rounded-full w-[44px] h-[44px] flex items-center justify-center">
+              <IoIosNotifications size={23} />
+            </button>
+            <button className="border border-[#C3D4E9]/40 text-[#3D5278] rounded-full w-[44px] h-[44px] flex items-center justify-center">
+              <IoMdSettings size={23} />
+            </button>
+            <div className="border border-[#C3D4E9]/40 overflow-hidden rounded-full w-[44px] h-[44px] flex items-center justify-center">
+              <img src="/Avatar1.jpeg" className="object-cover w-full h-full" />
+            </div>
           </div>
         </header>
 

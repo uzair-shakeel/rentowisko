@@ -23,11 +23,11 @@ export default function Hero() {
       <main className="">
         <div className="grid grid-cols-2 gap-2 md:py-10">
           <div className="flex flex-col justify-center pl-3.5 md:pl-[40px] xl:pl-[75px] -mt-3">
-            <h1 className="text-base leading-[19.36px] sm:leading-[40px] lg:leading-[66px] sm:text-[40px] lg:text-[55px] font-bold mb-4 md:max-w-[480px] w-full">
+            <h1 className="text-base leading-[19.36px] sm:leading-[40px] lg:leading-[66px] text-[16px] sm:text-[40px] lg:text-[55px] font-bold mb-4 md:max-w-[480px] w-full">
               Find, book, and rental car in{" "}
               <span className="text-blue-500">Easy</span> steps.
             </h1>
-            <p className="text-[#B3B0B0] leading-[25px] mb-6 max-w-[496px] w-full text-[12px] lg:text-[16px] py-4 font-medium md:block hidden">
+            <p className="text-[#B3B0B0] leading-[16px] sm:leading-[25px] mb-6 max-w-[496px] w-full text-[10px] lg:text-[16px] py-4 font-medium md:block hidden">
               Revolutionize your car rental experience with the cutting-edge
               power of Artificial Intelligence at Rentowisko. We've seamlessly
               merged the convenience of modern technology with the freedom of
