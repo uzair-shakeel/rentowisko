@@ -6,10 +6,10 @@
 * {
   font-family: "Plus Jakarta Sans", sans-serif;
 }
+
 .gradient {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
 }
-
 
 .custom-select {
   appearance: none;

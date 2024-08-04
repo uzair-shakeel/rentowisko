@@ -17,7 +17,7 @@ const Layout = ({ children }) => {
       {/* Sidebar */}
       <aside
         className={`bg-white text-black  flex-col py-4 lg:flex hidden shadow-lg ${
-          isSidebarOpen ? "w-[200px] pl-7" : "w-[80px]"
+          isSidebarOpen ? "w-[200px] pl-7" : "w-[50px]"
         } transition-width duration-300`}
       >
         <div
@@ -65,19 +65,86 @@ const Layout = ({ children }) => {
           </a>
         </nav>
       </aside>
+      {/* Sidebar */}
+      <aside
+        className={`bg-white text-black  flex-col py-4 flex lg:hidden shadow-lg ${
+          isSidebarOpen ? "w-[200px] pl-7" : "w-[0px]"
+        } transition-width duration-300 relative`}
+      >
+        <div
+          className="flex items-center justify-center mb-4 cursor-pointer"
+          onClick={toggleSidebar}
+        >
+          <RiMenuFill className="absolute -right-9 top-4 text-2xl text-[#629FFD]" />
+        </div>
+        <nav className="flex-1 flex flex-col items-center space-y-4">
+          <a
+            href="#"
+            className={`flex items-center w-full p-2 hover:bg-gray-200 ${
+              isSidebarOpen ? "justify-start" : "justify-center"
+            }`}
+          >
+            {isSidebarOpen && (
+              <span className="ml-4">
+                <FaHome className="text-xl text-[#629FFD]" />
+                Dashboard
+              </span>
+            )}
+          </a>
+          <a
+            href="#"
+            className={`flex items-center w-full p-2 hover:bg-gray-200 ${
+              isSidebarOpen ? "justify-start" : "justify-center"
+            }`}
+          >
+            {isSidebarOpen && (
+              <span className="ml-4">
+                <FaCar className="text-xl text-[#629FFD]" />
+                Car Rent
+              </span>
+            )}
+          </a>
+          <a
+            href="#"
+            className={`flex items-center w-full p-2 hover:bg-gray-200 ${
+              isSidebarOpen ? "justify-start" : "justify-center"
+            }`}
+          >
+            {isSidebarOpen && (
+              <span className="ml-4">
+                <FaUserCircle className="text-xl text-[#629FFD]" />
+                Profile
+              </span>
+            )}
+          </a>
+          <a
+            href="#"
+            className={`flex items-center w-full p-2 hover:bg-gray-200 ${
+              isSidebarOpen ? "justify-start" : "justify-center"
+            }`}
+          >
+            {isSidebarOpen && (
+              <span className="ml-4">
+                <FaCog className="text-xl text-[#629FFD]" />
+                Settings
+              </span>
+            )}
+          </a>
+        </nav>
+      </aside>
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* Header */}
         <header className="h-16 bg-white flex items-center shadow-md justify-end px-4">
           <div className="flex items-center space-x-4">
-            <button className="border border-[#C3D4E9]/40 text-[#3D5278] rounded-full w-[44px] h-[44px] flex items-center justify-center">
+            <button className="border border-[#C3D4E9]/40 text-[#3D5278] rounded-full w-[44px] h-[44px] hidden md:flex items-center justify-center">
               <FaHeart size={20} />
             </button>
-            <button className="border border-[#C3D4E9]/40 text-[#3D5278] rounded-full w-[44px] h-[44px] flex items-center justify-center">
+            <button className="border border-[#C3D4E9]/40 text-[#3D5278] rounded-full w-[44px] h-[44px] hidden md:flex items-center justify-center">
               <IoIosNotifications size={23} />
             </button>
-            <button className="border border-[#C3D4E9]/40 text-[#3D5278] rounded-full w-[44px] h-[44px] flex items-center justify-center">
+            <button className="border border-[#C3D4E9]/40 text-[#3D5278] rounded-full w-[44px] h-[44px] hidden md:flex items-center justify-center">
               <IoMdSettings size={23} />
             </button>
             <div className="border border-[#C3D4E9]/40 overflow-hidden rounded-full w-[44px] h-[44px] flex items-center justify-center">
