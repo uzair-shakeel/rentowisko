@@ -38,7 +38,7 @@ const deals = [
 
 const Deal = () => {
   return (
-    <div className="max-w-7xl mx-auto py-8">
+    <div className="max-w-7xl mx-auto py-8 bg-white">
       <h2 className="text-[13px] md:text-[16px] text-[#8F8C8C] font-[700] leading-[25px] text-center md:mb-3">
         POPULAR RENTAL DEALS
       </h2>
@@ -54,7 +54,7 @@ const Deal = () => {
             See All
           </button>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 ">
+        <div className="hidden md:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 ">
           {deals.map((deal, index) => (
             <div key={index} className="border p-4 rounded-lg shadow-lg">
               <h3 className="text-[20px] leading-[30px] font-bold mb-2">
@@ -114,7 +114,7 @@ const Deal = () => {
           ))}
         </div>
 
-        <div className="mt-5">
+        <div className="mt-5 flex flex-wrap gap-10 md:hidden">
           <div className="max-w-[327px] p-2 w-full flex flex-col gap-3">
             <div className="flex items-center justify-between">
               <div>
@@ -124,10 +124,94 @@ const Deal = () => {
               <Image src='/heart.svg' alt="heart" width={16} height={16} />
             </div>
 
-            <div className="pt-3 pb-8 flex items-end justify-between">
-              <div className="relative">
+            <div className="pt-3 pb-8 flex items-end justify-between bg-white">
+              <div className="relative h-full">
                 <Image src='/car1.svg' alt="car1" width={142} height={64} />
-                <span className=" absolute bottom-0 bg-custom h-full w-full"></span>
+                <span className=" absolute bottom-0 inset-0 bg-custom  h-full w-full"></span>
+              </div>
+
+              <div className="flex flex-col gap-3">
+                <div className="flex items-center gap-1">
+                  <Image src='/gas-station.svg' alt="Gas" width={14} height={14} />
+                  <h4 className="text-[#90A3BF] text-[12px] leading-[15.12px] tracking-[-0.02em] font-medium">70L</h4>
+                </div>
+                <div className="flex items-center gap-1">
+                  <Image src='/car-icon.svg' alt="car" width={14} height={14} />
+                  <h4 className="text-[#90A3BF] text-[12px] leading-[15.12px] tracking-[-0.02em] font-medium">Manual</h4>
+                </div>
+                <div className="flex items-center gap-1">
+                  <Image src='/profile-user.svg' alt="profile" width={14} height={14} />
+                  <h4 className="text-[#90A3BF] text-[12px] leading-[15.12px] tracking-[-0.02em] font-medium">6 People</h4>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between">
+              <div>
+                <h2 className="text-[#1A202C] text-[16px] leading-[20.16px] tracking-[-0.01em] font-semibold">$72.00/ <span className="text-[12px] leading-[15px] tracking-[-0.01em] font-medium">day</span></h2>
+                <h4 className="text-[#90A3BF] text-[12px] leading-[15.12px] tracking-[-0.01em] font-medium">$80.00</h4>
+              </div>
+              <div>
+                <button className="bg-[#629FFD] rounded w-[100px] h-[36px] text-white text-[12px] leading-[15.12px] tracking-[-0.02em] font-semibold">Rental Now</button>
+              </div>
+            </div>
+          </div>
+
+          <div className="max-w-[327px] p-2 w-full flex flex-col gap-3">
+            <div className="flex items-center justify-between">
+              <div>
+                <h2 className="text-[#1A202C] text-base tracking-[-0.02em] font-semibold">All New Rush</h2>
+                <h4 className="text-[#90A3BF] text-[12px] leading-[15.12px] tracking-[-0.02em] font-medium">SUV</h4>
+              </div>
+              <Image src='/heart.svg' alt="heart" width={16} height={16} />
+            </div>
+
+            <div className="pt-3 pb-8 flex items-end justify-between bg-white">
+              <div className="relative h-full">
+                <Image src='/car1.svg' alt="car1" width={142} height={64} />
+                <span className=" absolute bottom-0 inset-0 bg-custom  h-full w-full"></span>
+              </div>
+
+              <div className="flex flex-col gap-3">
+                <div className="flex items-center gap-1">
+                  <Image src='/gas-station.svg' alt="Gas" width={14} height={14} />
+                  <h4 className="text-[#90A3BF] text-[12px] leading-[15.12px] tracking-[-0.02em] font-medium">70L</h4>
+                </div>
+                <div className="flex items-center gap-1">
+                  <Image src='/car-icon.svg' alt="car" width={14} height={14} />
+                  <h4 className="text-[#90A3BF] text-[12px] leading-[15.12px] tracking-[-0.02em] font-medium">Manual</h4>
+                </div>
+                <div className="flex items-center gap-1">
+                  <Image src='/profile-user.svg' alt="profile" width={14} height={14} />
+                  <h4 className="text-[#90A3BF] text-[12px] leading-[15.12px] tracking-[-0.02em] font-medium">6 People</h4>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between">
+              <div>
+                <h2 className="text-[#1A202C] text-[16px] leading-[20.16px] tracking-[-0.01em] font-semibold">$72.00/ <span className="text-[12px] leading-[15px] tracking-[-0.01em] font-medium">day</span></h2>
+                <h4 className="text-[#90A3BF] text-[12px] leading-[15.12px] tracking-[-0.01em] font-medium">$80.00</h4>
+              </div>
+              <div>
+                <button className="bg-[#629FFD] rounded w-[100px] h-[36px] text-white text-[12px] leading-[15.12px] tracking-[-0.02em] font-semibold">Rental Now</button>
+              </div>
+            </div>
+          </div>
+
+          <div className="max-w-[327px] p-2 w-full flex flex-col gap-3">
+            <div className="flex items-center justify-between">
+              <div>
+                <h2 className="text-[#1A202C] text-base tracking-[-0.02em] font-semibold">All New Rush</h2>
+                <h4 className="text-[#90A3BF] text-[12px] leading-[15.12px] tracking-[-0.02em] font-medium">SUV</h4>
+              </div>
+              <Image src='/heart.svg' alt="heart" width={16} height={16} />
+            </div>
+
+            <div className="pt-3 pb-8 flex items-end justify-between bg-white">
+              <div className="relative h-full">
+                <Image src='/car1.svg' alt="car1" width={142} height={64} />
+                <span className=" absolute bottom-0 inset-0 bg-custom  h-full w-full"></span>
               </div>
 
               <div className="flex flex-col gap-3">
