@@ -23,7 +23,7 @@ export default function Hero() {
       <main className="">
         <div className="grid grid-cols-2 gap-2 md:py-10">
           <div className="flex flex-col justify-center pl-3.5 md:pl-[40px] xl:pl-[75px] -mt-3">
-            <h1 className="text-base leading-[19.36px] sm:leading-[40px] lg:leading-[66px] text-[16px] sm:text-[40px] lg:text-[55px] font-bold mb-4 md:max-w-[480px] w-full">
+            <h1 className="text-[17px] leading-[19.36px] sm:leading-[40px] lg:leading-[66px] sm:text-[40px] lg:text-[55px] font-bold mb-4 md:max-w-[480px] w-full">
               Find, book, and rental car in{" "}
               <span className="text-blue-500">Easy</span> steps.
             </h1>
@@ -51,7 +51,8 @@ export default function Hero() {
         </p>
 
         <div className="w-full px-2">
-          <div className="max-w-[1000px] w-full mx-auto rounded-3xl bg-white p-2.5 md:px-8 shadow">
+          {/* desktop */}
+          <div className="max-w-[1000px] w-full mx-auto rounded-3xl bg-white p-2.5 md:px-8 shadow md:block hidden">
             <div className="flex items-center justify-around sm:justify-between sm:gap-3">
               <div className="border-r h-full border-[#E8E4E4] flex items-start  flex-col gap-0.5 w-[60px] sm:w-full">
                 <h3 className="text-[5px] sm:text-[12px] font-extrabold leading-[7px] md:leading-[18px] uppercase md:pb-0.5 text-[#060C17]">
@@ -115,65 +116,75 @@ export default function Hero() {
                 Search
               </button>
             </div>
+          </div>
 
-            {/* <div className="flex w-full">
-              <div className="border-r border-[#E8E4E4] ">
-                <p className="text-[12px] font-[800] leading-[18px] uppercase pb-2">Location</p>
+          {/* Mobile */}
+          <div className="px-4 md:hidden block">
+            <div className="bg-white shadow-custom py-0.5 px-4 rounded-md flex items-center justify-between">
+              <div className="flex-1 flex items-start flex-col">
+                <h3 className="text-[10px] font-extrabold leading-[15px] uppercase text-[#060C17]">
+                  Location
+                </h3>
                 <input
                   type="text"
                   placeholder="Search your location.."
-                  className="border rounded border-none outline-none"
+                  className="border rounded border-none outline-none text-[10px]  text-[#5E5A5A] font-medium leading-[15px] bg-transparent"
                 />
               </div>
-              <div className="border-r border-[#E8E4E4]  px-5">
-                <p className="text-[12px] font-[800] uppercase pb-2">
+              <div className="flex-1 flex flex-col my-2 border-l border-[#E8E4E4]">
+                <h3 className="text-[10px] font-extrabold leading-[15px] text-[#060C17] pl-1">
                   Range in Km
-                </p>
-                <select className="">
+                </h3>
+                <select className="bg-transparent text-[10px] leading-[15px] text-[#5E5A5A] font-medium outline-none custom-select">
                   <option>Select</option>
                   <option>0-10</option>
                   <option>10-20</option>
                   <option>20-50</option>
                 </select>
               </div>
-              <div className="border-r border-[#E8E4E4]   px-5">
-                <p className="text-[12px] font-[800] uppercase pb-2">
-                  Range in Km
-                </p>
-                <select className="">
-                  <option>Type</option>
-                  <option>Sedan</option>
-                  <option>SUV</option>
-                  <option>Hatchback</option>
-                </select>
-              </div>
-              <div className="border-r border-[#E8E4E4]   px-5">
-                <p className="text-[12px] font-[800] uppercase pb-2">
-                  Range in Km
-                </p>
-                <select>
-                  <option>Make</option>
-                  <option>BMW</option>
-                  <option>Mercedes</option>
-                  <option>Toyota</option>
-                </select>
-              </div>
-              <div className=" border-[#E8E4E4]  px-5">
-                <p className="text-[12px] font-[800] uppercase pb-2">
-                  Range in Km
-                </p>
-                <select>
-                  <option>Model</option>
-                  <option>Model 1</option>
-                  <option>Model 2</option>
-                  <option>Model 3</option>
-                </select>
-              </div>
+            </div>
 
-              <button className="bg-[#629FFD] text-white text-[16px] font-[700] p-2 rounded-lg ">
-                Search
+            <div className="flex items-center justify-center gap-1.5 mt-2.5">
+              <div className="flex-1 flex flex-col bg-white p-2 rounded-md">
+                <h3 className="text-[10px] font-extrabold leading-[15px] text-[#060C17] pl-1">
+                  Type
+                </h3>
+                <select className="bg-transparent pl-1 text-[10px] leading-[15px] text-[#5E5A5A] font-medium outline-none custom-select">
+                  <option>Select</option>
+                  <option>0-10</option>
+                  <option>10-20</option>
+                  <option>20-50</option>
+                </select>
+              </div>
+              <div className="flex-1 flex flex-col bg-white p-2 rounded-md">
+                <h3 className="text-[10px] font-extrabold leading-[15px] text-[#060C17] pl-1">
+                  Make
+                </h3>
+                <select className="bg-transparent pl-1 text-[10px] leading-[15px] text-[#5E5A5A] font-medium outline-none custom-select">
+                  <option>Select</option>
+                  <option>0-10</option>
+                  <option>10-20</option>
+                  <option>20-50</option>
+                </select>
+              </div>
+              <div className="flex-1 flex flex-col bg-white p-2 rounded-md">
+                <h3 className="text-[10px] font-extrabold leading-[15px] text-[#060C17] pl-1">
+                  Model
+                </h3>
+                <select className="bg-transparent pl-1 text-[10px] leading-[15px] text-[#5E5A5A] font-medium outline-none custom-select">
+                  <option>Select Model</option>
+                  <option>0-10</option>
+                  <option>10-20</option>
+                  <option>20-50</option>
+                </select>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-center w-full">
+              <button className="bg-[#629FFD] mt-2.5 w-[177px] h-[28px] rounded text-white text-[10px] font-bold leading-[16px]">
+                  Search
               </button>
-            </div> */}
+            </div>
           </div>
         </div>
       </main>
