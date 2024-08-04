@@ -85,7 +85,7 @@ const Layout = ({ children }) => {
             }`}
           >
             {isSidebarOpen && (
-              <span className="ml-4">
+              <span className="md:ml-4 flex gap-3">
                 <FaHome className="text-xl text-[#629FFD]" />
                 Dashboard
               </span>
@@ -98,7 +98,7 @@ const Layout = ({ children }) => {
             }`}
           >
             {isSidebarOpen && (
-              <span className="ml-4">
+              <span className="md:ml-4 flex gap-3">
                 <FaCar className="text-xl text-[#629FFD]" />
                 Car Rent
               </span>
@@ -111,7 +111,7 @@ const Layout = ({ children }) => {
             }`}
           >
             {isSidebarOpen && (
-              <span className="ml-4">
+              <span className="md:ml-4 flex gap-3">
                 <FaUserCircle className="text-xl text-[#629FFD]" />
                 Profile
               </span>
@@ -124,7 +124,7 @@ const Layout = ({ children }) => {
             }`}
           >
             {isSidebarOpen && (
-              <span className="ml-4">
+              <span className="md:ml-4 flex gap-3">
                 <FaCog className="text-xl text-[#629FFD]" />
                 Settings
               </span>
@@ -138,7 +138,7 @@ const Layout = ({ children }) => {
         {/* Header */}
         <header className="h-16 bg-white flex items-center shadow-md justify-end px-4">
           <div className="flex items-center space-x-4">
-            <button className="border border-[#C3D4E9]/40 text-[#3D5278] rounded-full w-[44px] h-[44px] hidden md:flex items-center justify-center">
+            <button className=" border border-[#C3D4E9]/40 text-[#3D5278] rounded-full w-[44px] h-[44px] hidden md:flex items-center justify-center">
               <FaHeart size={20} />
             </button>
             <button className="border border-[#C3D4E9]/40 text-[#3D5278] rounded-full w-[44px] h-[44px] hidden md:flex items-center justify-center">
