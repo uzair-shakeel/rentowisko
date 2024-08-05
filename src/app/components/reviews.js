@@ -49,7 +49,7 @@ const Review = () => {
   return (
     <div className=" mx-auto py-8 bg-[#F5F6FB]">
       <div className="max-w-4xl mx-auto px-[5%]">
-        <h2 className="text-[15px] md:text-[28px] font-[700] leading-[34px] text-center mb-8">
+        <h2 className="text-[18px] md:text-[28px] font-[700] leading-[34px] text-center mb-8">
           Reviews
         </h2>
         {displayedReviews.map((review, index) => (

@@ -75,7 +75,7 @@ const Layout = ({ children }) => {
           className="flex items-center justify-center mb-4 cursor-pointer"
           onClick={toggleSidebar}
         >
-          <RiMenuFill className="absolute -right-9 top-4 text-2xl text-[#629FFD]" />
+          <RiMenuFill className="absolute -right-14 top-3 text-3xl text-[#629FFD]" />
         </div>
         <nav className="flex-1 flex flex-col items-center space-y-4">
           <a
