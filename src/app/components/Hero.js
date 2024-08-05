@@ -27,7 +27,7 @@ export default function Hero() {
         <main className="">
           <div className="grid grid-cols-2 gap-2 md:py-10">
             <div className="flex flex-col justify-center pl-3.5 md:pl-[40px] xl:pl-[75px] -mt-3">
-              <h1 className="text-[22px] leading-[24px] sm:leading-[40px] lg:leading-[66px] sm:text-[40px] lg:text-[55px] font-bold mb-4 md:max-w-[480px] w-full">
+              <h1 className="text-[24px] leading-[30px] sm:leading-[40px] lg:leading-[66px] sm:text-[40px] lg:text-[55px] font-bold mb-4 md:max-w-[480px] w-full">
                 Find, book, and rental car in{" "}
                 <span className="text-blue-500">Easy</span> steps.
               </h1>
@@ -47,7 +47,7 @@ export default function Hero() {
               className="w-full"
             />
           </div>
-          <p className="text-[#B3B0B0] leading-[15px] sm:leading-[25px] mb-6 px-[15px] mx-auto w-full text-[10px] sm:text-[16px] py-4 font-medium block md:hidden">
+          <p className="text-[#B3B0B0] leading-[27px] mb-6 px-[15px] mx-auto w-full text-[16px] sm:text-[16px] py-4 font-medium block md:hidden">
             Revolutionize your car rental experience with the cutting-edge power
             of Artificial Intelligence at Rentowisko. We've seamlessly merged
             the convenience of modern technology with the freedom of the open
@@ -185,7 +185,7 @@ export default function Hero() {
               </div>
 
               <div className="flex items-center justify-center w-full">
-                <button className="bg-[#629FFD] mt-2.5 w-[177px] h-[28px] rounded text-white text-[13px] font-bold leading-[16px]">
+                <button className="bg-[#629FFD] mt-2.5 w-[177px] h-[28px] rounded text-white text-[16px] font-bold leading-[16px]">
                   Search
                 </button>
               </div>

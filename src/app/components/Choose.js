@@ -51,13 +51,13 @@ export default function Choose() {
           </div> */}
         </div>
         <div className=" md:w-[40%]">
-          <h2 className="text-[13px]  md:text-[16px] font-[700] leading-[25px] mb-2">
+          <h2 className="text-[15px]  md:text-[16px] font-[700] leading-[25px] mb-2">
             WHY CHOOSE US
           </h2>
-          <h1 className="text-[18px] md:text-[24px] font-[700] leading-[28px] md:leading-[36px] mb-8 md:mb-6">
+          <h1 className="text-[24px] md:text-[24px] font-[700] leading-[28px] md:leading-[36px] mb-14 md:mb-6">
             We offer the best experience with our rental deals
           </h1>
-          <div className=" space-y-4">
+          <div className=" space-y-8">
             <div className="flex items-start">
               <div className="bg-white p-1 flex items-center justify-center h-[40px] w-[40px] shadow-md rounded-lg mr-4">
                 <img
@@ -66,11 +66,11 @@ export default function Choose() {
                   className="w-auto "
                 />
               </div>
-              <div>
-                <h3 className="text-[14px] font-[600] leading-[21px]">
+              <div className="w-[80%]">
+                <h3 className="text-[16px] font-[600] mb-1 leading-[21px]">
                   Best price guaranteed
                 </h3>
-                <p className="text-[#6B6868] text-[11px] leading-[17px]">
+                <p className="text-[#6B6868] text-[14px] leading-[17px]">
                   Find a lower price? we'll refund you 100% of the difference
                 </p>
               </div>
@@ -80,10 +80,10 @@ export default function Choose() {
                 <img src="/icons/AI.svg" alt="Best Price" className="w-auto " />
               </div>
               <div className="w-[80%]">
-                <h3 className="text-[14px] font-[600] leading-[21px]">
+                <h3 className="text-[16px] mb-1 font-[600] leading-[21px]">
                   Power of AI
                 </h3>
-                <p className="text-[#6B6868] text-[11px] leading-[17px]">
+                <p className="text-[#6B6868] text-[14px] leading-[17px]">
                   Revolutionize your car rental experience with the cutting-edge
                   power of Artificial Intelligence
                 </p>
@@ -98,10 +98,10 @@ export default function Choose() {
                 />
               </div>
               <div className="w-[80%]">
-                <h3 className="text-[14px] font-[600] leading-[21px]">
+                <h3 className="text-[16px] mb-1 font-[600] leading-[21px]">
                   24-hour car delivery
                 </h3>
-                <p className="text-[#6B6868] text-[11px] leading-[17px]">
+                <p className="text-[#6B6868] text-[14px] leading-[17px]">
                   Book your car anytime and we will deliver it directly to you
                 </p>
               </div>
@@ -115,10 +115,10 @@ export default function Choose() {
                 />
               </div>
               <div className="w-[80%]">
-                <h3 className="text-[14px]  font-[600] leading-[21px]">
+                <h3 className="text-[16px] mb-1 font-[600] leading-[21px]">
                   24/7 technical support
                 </h3>
-                <p className="text-[#6B6868] text-[11px] leading-[17px]">
+                <p className="text-[#6B6868] text-[14px] leading-[17px]">
                   Have you questions? Contact Carental support anytime when you
                   have a problem
                 </p>

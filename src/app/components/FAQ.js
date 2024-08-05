@@ -8,7 +8,7 @@ const FAQ = () => {
 
   return (
     <div className="py-12 px-[5%] md:px-[9%] lg:px-[14%] ">
-      <h2 className="text-[18px] md:text-[28px] text-center font-[700] leading-[43px] py-5">
+      <h2 className="text-[24px] md:text-[28px] text-center font-[700] leading-[43px] py-5">
         Frequently Asked Questions
       </h2>
       <Accordion variant="light">
