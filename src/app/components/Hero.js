@@ -124,9 +124,9 @@ export default function Hero() {
 
             {/* Mobile */}
             <div className="px-4 md:hidden block">
-              <div className=" shadow-custom py-0.5 px-4 rounded-md flex flex-col items-center justify-between">
-                <div className="flex-1 flex bg-white w-full rounded items-center py-3 gap-2 flex-col">
-                  <h3 className="text-[15px] font-extrabold leading-[18px] uppercase text-[#060C17]">
+              <div className=" shadow-custom py-0.5  rounded-md flex gap-2 items-center justify-between">
+                <div className="flex-1 flex bg-white w-full rounded items-start p-3 gap-2 flex-col">
+                  <h3 className="text-[15px] font-extrabold leading-[18px]  text-[#060C17]">
                     Location
                   </h3>
                   <input
@@ -135,8 +135,8 @@ export default function Hero() {
                     className="border rounded border-none outline-none text-[15px]  text-[#5E5A5A] font-medium leading-[15px] bg-transparent"
                   />
                 </div>
-                <div className="flex-1 flex flex-col my-2 py-3 gap-2 bg-white w-full rounded items-center border-[#E8E4E4]">
-                  <h3 className="text-[15px] font-extrabold leading-[18px] text-[#060C17] pl-1">
+                <div className="flex-1 flex flex-col my-2 p-3 gap-2 bg-white rounded items-start  w-full border-[#E8E4E4]">
+                  <h3 className="text-[15px] font-extrabold leading-[18px] text-[#060C17] ">
                     Range in Km
                   </h3>
                   <select className="bg-transparent text-[15px] leading-[18px] text-[#5E5A5A] font-medium outline-none custom-select">
@@ -148,8 +148,8 @@ export default function Hero() {
                 </div>
               </div>
 
-              <div className="flex items-center justify-center gap-1.5 mt-2.5">
-                <div className="flex-1 flex flex-col items-center gap-1 bg-white p-2 rounded-md">
+              <div className="flex flex-col items-center justify-center gap-2 ">
+                <div className="flex-1 flex flex-col items-start gap-1 w-full bg-white p-2 rounded-md">
                   <h3 className="text-[13px] font-extrabold leading-[15px] text-[#060C17] pl-1">
                     Type
                   </h3>
@@ -160,7 +160,7 @@ export default function Hero() {
                     <option>20-50</option>
                   </select>
                 </div>
-                <div className="flex-1 flex items-center gap-1 flex-col bg-white p-2 rounded-md">
+                <div className="flex-1 flex  items-start gap-1 w-full flex-col bg-white p-2 rounded-md">
                   <h3 className="text-[13px] font-extrabold leading-[18px] text-[#060C17] pl-1">
                     Make
                   </h3>
@@ -171,7 +171,7 @@ export default function Hero() {
                     <option>20-50</option>
                   </select>
                 </div>
-                <div className="flex-1 flex flex-col items-center gap-1 bg-white p-2 rounded-md">
+                <div className="flex-1 flex flex-col  items-start gap-1 w-full bg-white p-2 rounded-md">
                   <h3 className="text-[13px] font-extrabold leading-[18px] text-[#060C17] pl-1">
                     Model
                   </h3>
@@ -185,7 +185,7 @@ export default function Hero() {
               </div>
 
               <div className="flex items-center justify-center w-full">
-                <button className="bg-[#629FFD] mt-2.5 py-4 w-full rounded text-white text-[16px] font-bold leading-[16px]">
+                <button className="bg-[#629FFD] mt-4 py-4 w-full rounded text-white text-[16px] font-bold leading-[16px]">
                   Search
                 </button>
               </div>
