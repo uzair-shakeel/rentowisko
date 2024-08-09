@@ -7,8 +7,8 @@ const FAQ = () => {
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
 
   return (
-    <div className="py-12 px-[5%] md:px-[9%] lg:px-[14%] ">
-      <h2 className="text-[24px] md:text-[28px] text-center font-[700] leading-[43px] py-5">
+    <div className="py-12 px-[5%] md:px-[6%] max-w-[1270px] mx-auto lg:px-[2%]">
+      <h2 className="text-[24px] md:text-[28px] lg:text-[33px] text-center font-[700] leading-[43px] py-5">
         Frequently Asked Questions
       </h2>
       <Accordion variant="light">

@@ -47,9 +47,9 @@ const Review = () => {
   const displayedReviews = showAll ? reviews.slice(0, 4) : reviews.slice(0, 2);
 
   return (
-    <div className=" mx-auto py-8 bg-[#F5F6FB]">
-      <div className="max-w-4xl mx-auto px-[5%]">
-        <h2 className="text-[24px] md:text-[28px] font-[700] leading-[34px] text-center mb-8">
+    <div className=" mx-auto py-8 bg-[rgb(245,246,251)]">
+      <div className="max-w-[1270px] mx-auto lg:px-[2%] px-[5%]">
+        <h2 className="text-[24px] md:text-[28px] lg:text-[33px] font-[700] leading-[34px] text-center mb-8">
           Reviews
         </h2>
         {displayedReviews.map((review, index) => (
@@ -62,15 +62,15 @@ const Review = () => {
             <div>
               <div className="flex justify-between">
                 <div>
-                  <h3 className="text-[20px] font-[700] leading-[30px]">
+                  <h3 className="text-[20px] lg:text-[23px] font-[700] leading-[30px]">
                     {review.name}
                   </h3>
-                  <p className="text-[#90A3BF] text-[14px] font-[500]">
+                  <p className="text-[#90A3BF] text-[14px] lg:text-[16px] font-[500]">
                     {review.position}
                   </p>
                 </div>
                 <div>
-                  <span className="text-[#90A3BF] text-[14px] font-[500]">
+                  <span className="text-[#90A3BF] text-[14px] lg:text-[16px] font-[500]">
                     {review.date}
                   </span>
                   <div className="flex">
@@ -92,7 +92,7 @@ const Review = () => {
                 </div>
               </div>
               <div className="flex items-center mt-2">
-                <p className="mt-2 text-[#596780] text-[14px] leading-[28px]">
+                <p className="mt-2 text-[#596780] text-[14px] lg:text-[16px] leading-[28px]">
                   {review.review}
                 </p>
               </div>

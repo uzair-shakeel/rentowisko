@@ -31,7 +31,7 @@ export default function Hero() {
                 Find, book, and rental car in{" "}
                 <span className="text-blue-500">Easy</span> steps.
               </h1>
-              <p className="text-[#B3B0B0] leading-[20px] sm:leading-[25px] mb-6 max-w-[496px] w-full text-[15px] lg:text-[16px] py-4 font-medium md:block hidden">
+              <p className="text-[#B3B0B0] leading-[20px] sm:leading-[25px] mb-6 max-w-[496px] w-full text-[15px] lg:text-[px] py-4 font-medium md:block hidden">
                 Revolutionize your car rental experience with the cutting-edge
                 power of Artificial Intelligence at Rentowisko. We've seamlessly
                 merged the convenience of modern technology with the freedom of
@@ -56,7 +56,7 @@ export default function Hero() {
 
           <div className="w-full px-2">
             {/* desktop */}
-            <div className="max-w-[1000px] w-full mx-auto rounded-3xl bg-white p-2.5 md:px-8 shadow md:block hidden">
+            <div className="max-w-[1270px] mx-auto lg:px-[2%] w-full rounded-3xl bg-white p-2.5 md:px-8 shadow md:block hidden">
               <div className="flex items-center justify-around sm:justify-between sm:gap-3">
                 <div className="border-r h-full border-[#E8E4E4] flex items-start  flex-col gap-0.5 w-[60px] sm:w-full">
                   <h3 className="text-[5px] sm:text-[12px] font-extrabold leading-[7px] md:leading-[18px] uppercase md:pb-0.5 text-[#060C17]">
