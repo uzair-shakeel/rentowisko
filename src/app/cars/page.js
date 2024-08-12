@@ -144,7 +144,7 @@ export default function HomePage() {
               className="flex h-12 w-12  my-4 p-1 border border-gray-200 rounded"
             />
           </div>
-          <div className="relative">
+          {/* <div className="relative">
             <aside
               className={`md:hidden w-full duration-300 absolute top-0 z-50 ${
                 isFilteropen === false ? "-right-[400px]" : "right-4"
@@ -152,7 +152,17 @@ export default function HomePage() {
             >
               <FilterSidebar />
             </aside>
+          </div> */}
+          <div className="relative">
+            <aside
+              className={`md:hidden w-full h-screen duration-300 absolute top-0 z-50  transition-transform transform ${
+                isFilteropen ? "-translate-x-[15px]" : "-translate-x-[400px]"
+              }`}
+            >
+              <FilterSidebar />
+            </aside>
           </div>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {cars.concat(cars, cars).map((car, index) => (
               <CarCard key={index} car={car} index={index} />
