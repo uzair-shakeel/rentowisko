@@ -90,28 +90,28 @@ const RentCarForm = () => {
         </form>
       </div>
       <div className="mt-4 text-[#6B6868] text-[15px] font-[700]">
-        <div className="font-[600] text-[20px]">Billing Summary</div>
-        <div className="bg-gray-100 p-4 rounded-lg">
-          <div className="flex justify-between">
+        <div className="font-[600] text-[20px] text-black">Billing Summary</div>
+        <div className="bg-gray-100 p-6 mt-4 rounded-lg">
+          <div className="flex justify-between mb-4">
             <span>Days</span>
             <span>4 × 120 = 480 $</span>
           </div>
-          <div className="flex justify-between">
+          <div className="flex justify-between my-4">
             <span>Fuel Included</span>
             <span>50 × 10$ = 500 $</span>
           </div>
-          <div className="flex justify-between">
+          <div className="flex justify-between my-4 mb-6">
             <span>Insurance</span>
             <span>500 $</span>
           </div>
-          <hr className="my-2" />
-          <div className="flex justify-between font-bold">
+          <hr className="" />
+          <div className="flex justify-between pt-6 font-[700] border-t-3 border-spacing-10 border-dashed border-black text-black text-[20px]">
             <span>Total</span>
             <span>{calculateTotal()} $</span>
           </div>
         </div>
       </div>
-      <div className="flex gap-2 mt-4">
+      <div className="flex flex-col w-full gap-2 mt-4">
         <button
           onClick={handleRent}
           className="bg-blue-500 text-white py-2 px-4 rounded-lg"
