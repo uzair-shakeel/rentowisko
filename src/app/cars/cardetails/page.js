@@ -6,11 +6,11 @@ import React from "react";
 const page = () => {
   return (
     <Layout className="container mx-auto p-4">
-      <div className="flex gap-8 p-4 md:p-8 lg:flex-row flex-col">
-        <div className="lg:w-[70%] w-full">
+      <div className="flex gap-8 p-4 md:p-8 md:flex-row flex-col">
+        <div className="md:w-[70%] w-full">
           <CarDetails />
         </div>
-        <div className="lg:w-[30%] w-full">
+        <div className="md:w-[30%] w-full">
           <RentCarForm />
         </div>
       </div>
