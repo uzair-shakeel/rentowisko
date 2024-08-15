@@ -11,7 +11,7 @@ const page = () => {
           <CarDetails />
         </div>
         <div className="lg:w-[30%] w-full">
-          {/* <RentCarForm /> */}
+          <RentCarForm />
         </div>
       </div>
     </Layout>

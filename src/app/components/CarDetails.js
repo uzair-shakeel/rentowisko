@@ -155,9 +155,9 @@ const CarDetails = () => {
 
       <div className="mt-7 border-2 border-[#6B686821] w-full rounded-[15px] bg-white px-5 sm:px-9 pt-[24px] pb-3.5">
         <h3 className="text-[#131111] text-[20px] leading-[30px] font-bold font-inter">Car Info</h3>
-        <div className={`mt-5 flex flex-wrap gap-4 overflow-hidden transition-max-h duration-300`}>
+        <div className={`mt-5 flex flex-wrap gap-4 justify-between transition-max-h duration-300`}>
           {carInfoData.slice(0, boxesToShow).map((item) => (
-            <div key={item.id} className="flex items-center justify-between flex-col gap-2">
+            <div key={item.id} className="flex items-center flex-col gap-2">
               <div className="sm:w-[70px] sm:h-[70px] w-[40px] h-[40px] rounded-lg bg-[#9FC5FF] flex items-center justify-center text-center">
                 <Image src={item.src} alt={item.alt} width={50} height={50} className="sm:w-[50px] sm:h-[50px] w-[25px] h-[25px]" />
               </div>
