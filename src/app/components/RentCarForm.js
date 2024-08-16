@@ -26,7 +26,7 @@ const RentCarForm = () => {
 
   return (
     <div className="p-4 bg-white rounded-lg shadow-lg flex flex-col gap-4">
-      <div className="font-[700] text-[20px]">Renter</div>
+      <div className="font-[700] text-[24px] md:text-[22px]">Renter</div>
       <div className="flex items-center gap-4">
         <img
           src="/details/boy.png"
