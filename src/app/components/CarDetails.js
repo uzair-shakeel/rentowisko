@@ -71,7 +71,7 @@ const CarDetails = () => {
   return (
     <>
       <div>
-        <div className="py-[30px] sm:py-[53px] bg-white rounded-[15px] shadow-lg flex flex-col gap-4">
+        <div className="md:py-[30px] sm:py-[53px] bg-white rounded-[15px] shadow-lg flex flex-col gap-4">
           <div className="md:flex hidden items-center justify-between w-full px-[30px]">
             <div>
               <h2 className="text-[#131111] text-[28px] leading-[42px] font-bold font-inter">
@@ -115,60 +115,40 @@ const CarDetails = () => {
               </button>
             </div>
           </div>
-          <div className="md:hidden no-scrollbar flex overflow-x-scroll space-x-6 max-w-[920px] mx-auto w-full px-5 my-[20px]">
-            <Image
-              src="/car-s.svg"
+          <div className="md:hidden no-scrollbar p-1 flex overflow-x-auto space-x-6 max-w-[920px] mx-auto w-full h-full">
+            {/* Container with images */}
+            <div className="w-full h-[200px] flex-shrink-0 overflow-hidden">
+              <img
+                src="/details/car1.png"
               alt="Main Car"
-              width={900}
-              height={376}
-              className="w-full rounded-[15px]"
-              onClick={() => handleImageClick("/car-s.svg")}
+                className="w-full h-full object-cover rounded-[15px]"
+                onClick={handleImageClick}
             />
-            <Image
+            </div>
+            <div className="w-full h-[200px] flex-shrink-0 overflow-hidden">
+              <img
               src="/details/car2.png"
               alt="Main Car"
-              width={900}
-              height={376}
-              className="w-full rounded-[15px]"
-              onClick={() => handleImageClick("/details/car2.png")}
+                className="w-full h-full object-cover rounded-[15px]"
+                onClick={handleImageClick}
             />
-            <Image
+            </div>
+            <div className="w-full h-[200px] flex-shrink-0 overflow-hidden">
+              <img
               src="/details/car3.png"
               alt="Main Car"
-              width={900}
-              height={376}
-              className="w-full rounded-[15px]"
-              onClick={() => handleImageClick("/details/car3.png")}
+                className="w-full h-full object-cover rounded-[15px]"
+                onClick={handleImageClick}
             />
-            <Image
+            </div>
+            <div className="w-full h-[200px] flex-shrink-0 overflow-hidden">
+              <img
               src="/details/car4.png"
               alt="Main Car"
-              width={900}
-              height={376}
-              className="w-full rounded-[15px]"
-              onClick={() => handleImageClick("/details/car4.png")}
-            />
-            {/* <div className="flex justify-between gap-2 mt-12">
-            <img
-              src="/details/car2.png"
-              alt="Car 1"
-              className="md:w-[172px] md:h-[95px] w-[96px] h-[64px] object-cover rounded-[10px]"
-            />
-            <img
-              src="/details/car3.png"
-              alt="Car 2"
-              className="md:w-[172px] md:h-[95px] w-[96px] h-[64px] object-cover rounded-[10px]"
-            />
-            <img
-              src="/details/car4.png"
-              alt="Car 3"
-              className="md:w-[172px] md:h-[95px] w-[96px] h-[64px] object-cover rounded-[10px]"
-            />
-            <button className="h-[92px] w-[58px] md:flex hidden flex-col items-center justify-center gap-1.5 text-white bg-[#629FFD] rounded-[7px] text-[11px] leading-[16px] font-bold font-inter uppercase">
-              <FaChevronRight size={25} />
-              More
-            </button>
-          </div> */}
+                className="w-full h-full object-cover rounded-[15px]"
+                onClick={handleImageClick}
+              />
+            </div>
           </div>
         </div>
 
