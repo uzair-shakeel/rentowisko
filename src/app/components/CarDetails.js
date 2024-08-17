@@ -2,6 +2,7 @@
 "use client";
 import Image from "next/image";
 import React, { useState, useRef, useEffect } from "react";
+import { FaChevronLeft, FaTimes } from "react-icons/fa";
 import { FaChevronRight } from "react-icons/fa6";
 ("../globals.css");
 
@@ -25,7 +26,7 @@ const CarDetails = () => {
 
   // State for modal
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
   const toggleReadMore = () => {
     setIsExpanded(!isExpanded);
@@ -58,14 +59,32 @@ const CarDetails = () => {
     setShowMore(!showMore);
   };
 
-  const handleImageClick = (src) => {
-    setSelectedImage(src);
+  const carImages = [
+    "/details/car1.png",
+    "/details/car2.png",
+    "/details/car3.png",
+    "/details/car4.png",
+  ];
+
+  const handleImageClick = (index) => {
+    setSelectedImageIndex(index);
     setIsModalOpen(true);
+  };
+
+  const handleNextImage = () => {
+    setSelectedImageIndex((prevIndex) =>
+      prevIndex === carImages.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const handlePreviousImage = () => {
+    setSelectedImageIndex((prevIndex) =>
+      prevIndex === 0 ? carImages.length - 1 : prevIndex - 1
+    );
   };
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
-    setSelectedImage(null);
   };
 
   return (
@@ -120,33 +139,33 @@ const CarDetails = () => {
             <div className="w-full h-[200px] flex-shrink-0 overflow-hidden">
               <img
                 src="/details/car1.png"
-              alt="Main Car"
+                alt="Main Car"
                 className="w-full h-full object-cover rounded-[15px]"
-                onClick={handleImageClick}
-            />
+                onClick={() => handleImageClick(0)}
+              />
             </div>
             <div className="w-full h-[200px] flex-shrink-0 overflow-hidden">
               <img
-              src="/details/car2.png"
-              alt="Main Car"
+                src="/details/car2.png"
+                alt="Main Car"
                 className="w-full h-full object-cover rounded-[15px]"
-                onClick={handleImageClick}
-            />
+                onClick={() => handleImageClick(1)}
+              />
             </div>
             <div className="w-full h-[200px] flex-shrink-0 overflow-hidden">
               <img
-              src="/details/car3.png"
-              alt="Main Car"
+                src="/details/car3.png"
+                alt="Main Car"
                 className="w-full h-full object-cover rounded-[15px]"
-                onClick={handleImageClick}
-            />
+                onClick={() => handleImageClick(2)}
+              />
             </div>
             <div className="w-full h-[200px] flex-shrink-0 overflow-hidden">
               <img
-              src="/details/car4.png"
-              alt="Main Car"
+                src="/details/car4.png"
+                alt="Main Car"
                 className="w-full h-full object-cover rounded-[15px]"
-                onClick={handleImageClick}
+                onClick={() => handleImageClick(3)}
               />
             </div>
           </div>
@@ -241,7 +260,7 @@ const CarDetails = () => {
           >
             {carInfoData.slice(0, boxesToShow).map((item) => (
               <div key={item.id} className="flex items-center flex-col gap-2">
-                <div className="sm:w-[70px] sm:h-[70px] w-[60px] h-[60px] rounded-lg bg-[#9FC5FF] flex items-center justify-center text-center">
+                <div className="sm:w-[70px] sm:h-[70px] w-[70px] h-[70px] rounded-lg bg-[#9FC5FF] flex items-center justify-center text-center">
                   <Image
                     src={item.src}
                     alt={item.alt}
@@ -304,7 +323,7 @@ const CarDetails = () => {
           </table>
         </div>
       </div>
-      {isModalOpen && (
+      {/* {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
           <div className="relative">
             <img
@@ -318,6 +337,39 @@ const CarDetails = () => {
             >
               ×
             </button>
+          </div>
+        </div>
+      )} */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70">
+          <div className="relative w-[97%] md:w-[70%] max-w-3xl bg-white rounded-lg p-1">
+            <button
+              className="absolute top-3 right-3 text-white "
+              onClick={handleCloseModal}
+            >
+              <FaTimes size={20} />
+            </button>
+            <div className="flex items-center justify-between">
+              <button
+                className="absolute  bottom-2 left-2 text-white "
+                onClick={handlePreviousImage}
+              >
+                <FaChevronLeft size={30} />
+              </button>
+              <Image
+                src={carImages[selectedImageIndex]}
+                alt={`Car ${selectedImageIndex + 1}`}
+                width={900}
+                height={600}
+                className="w-full h-full object-contain rounded-lg"
+              />
+              <button
+                className="absolute bottom-2 right-2 text-white"
+                onClick={handleNextImage}
+              >
+                <FaChevronRight size={30} />
+              </button>
+            </div>
           </div>
         </div>
       )}
