@@ -6,7 +6,7 @@ const Login = () => {
     <Layout>
       <div className="flex flex-col min-h-[500px] md:flex-row">
         {/* Left Side - Login Form */}
-        <h1 className="bg-white w-full py-4 px-3 text-[#3563E9] lg:hidden uppercase text-[34px] font-[700] leading-[36px]">
+        <h1 className="md:hidden bg-white w-full py-4 px-3 text-[#3563E9] lg:hidden uppercase text-[34px] font-[700] leading-[36px]">
           Rentowisko
         </h1>
         <div className="flex flex-col justify-center w-full p-8 bg-white md:w-1/2">
