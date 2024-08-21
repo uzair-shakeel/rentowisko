@@ -5,6 +5,14 @@ import React, { useState, useRef, useEffect } from "react";
 import { FaChevronLeft, FaTimes } from "react-icons/fa";
 import { FaChevronRight } from "react-icons/fa6";
 ("../globals.css");
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import ImageSlider from "./ImageSlider";
+import { RxCross2 } from "react-icons/rx";
+
+
+
+
 
 const carInfoData = [
   { id: 1, src: "/electric.svg", alt: "Electric", text: "Electric Car" },
@@ -54,8 +62,8 @@ const CarDetails = () => {
   const boxesToShow = showMore
     ? carInfoData.length
     : screenWidth >= 768
-    ? defaultBoxes.desktop
-    : defaultBoxes.mobile;
+      ? defaultBoxes.desktop
+      : defaultBoxes.mobile;
 
   const handleToggle = () => {
     setShowMore(!showMore);
@@ -68,10 +76,6 @@ const CarDetails = () => {
     "/details/car4.png",
   ];
 
-  const handleImageClick = (index) => {
-    setSelectedImageIndex(index);
-    setIsModalOpen(true);
-  };
 
   const handleNextImage = () => {
     setSelectedImageIndex((prevIndex) =>
@@ -88,6 +92,17 @@ const CarDetails = () => {
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
+
+
+  const [showSlider, setShowSlider] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const images = ['/details/car1.png', '/details/car2.png', '/details/car3.png', '/details/car4.png'];
+
+  const handleImageClick = (index) => {
+    setCurrentIndex(index);
+    setShowSlider(true);
+  };
+
 
   return (
     <>
@@ -106,6 +121,8 @@ const CarDetails = () => {
               120$/Day
             </h2>
           </div>
+
+
           <div className="max-w-[920px] mx-auto w-full px-5 my-[20px] hidden md:block">
             <Image
               src={selectedImage}
@@ -139,72 +156,69 @@ const CarDetails = () => {
               </button>
             </div>
           </div>
+
+
+          {/* Mobile */}
           <div className="md:hidden no-scrollbar p-1 flex overflow-x-auto space-x-6 max-w-[920px] mx-auto w-full h-full">
-            {/* Container with images */}
-            <div className="w-full h-[200px] flex-shrink-0 overflow-hidden">
-              <img
-                src="/details/car1.png"
-                alt="Main Car"
-                className="w-full h-full object-cover rounded-[15px]"
-                onClick={() => handleImageClick(0)}
-              />
-            </div>
-            <div className="w-full h-[200px] flex-shrink-0 overflow-hidden">
-              <img
-                src="/details/car2.png"
-                alt="Main Car"
-                className="w-full h-full object-cover rounded-[15px]"
-                onClick={() => handleImageClick(1)}
-              />
-            </div>
-            <div className="w-full h-[200px] flex-shrink-0 overflow-hidden">
-              <img
-                src="/details/car3.png"
-                alt="Main Car"
-                className="w-full h-full object-cover rounded-[15px]"
-                onClick={() => handleImageClick(2)}
-              />
-            </div>
-            <div className="w-full h-[200px] flex-shrink-0 overflow-hidden">
-              <img
-                src="/details/car4.png"
-                alt="Main Car"
-                className="w-full h-full object-cover rounded-[15px]"
-                onClick={() => handleImageClick(3)}
-              />
-            </div>
+            {images.map((src, index) => (
+              <div
+                key={index}
+                className="w-full h-[200px] flex-shrink-0 overflow-hidden"
+                onClick={() => handleImageClick(index)}
+              >
+                <img
+                  src={src}
+                  alt={`Car ${index + 1}`}
+                  className="w-full h-full object-cover rounded-[15px] cursor-pointer"
+                />
+              </div>
+            ))}
+
+            {showSlider && (
+              <div className="space-0 fixed top-0 left-0 bottom-0 right-0 p-2 min-w-full h-full z-50  bg-black bg-opacity-80">
+                <button
+                  onClick={() => setShowSlider(false)}
+                  className="absolute top-4 text-white z-50 text-[30px] right-0"
+                >
+                  <RxCross2 />
+
+                </button>
+                <div className="flex items-center justify-center h-full">
+                  <ImageSlider images={images} initialIndex={currentIndex} />
+                </div>
+              </div>
+            )}
           </div>
+
+
         </div>
 
         <div className="mt-7 border-2 border-[#6B686821] w-full rounded-[15px] bg-white px-5 sm:px-9 pt-[24px] pb-7">
           {/* Tab */}
           <div className="flex items-center md:gap-12 px-2 justify-between md:justify-normal">
             <button
-              className={`text-[17px] sm:text-[20px] leading-[30px] font-inter px-1 sm:px-2 ${
-                activeTab === "overview"
-                  ? "text-[#629FFD] font-bold border-b-4 border-[#629FFD]"
-                  : "text-[#6B6868] font-medium"
-              }`}
+              className={`text-[17px] sm:text-[20px] leading-[30px] font-inter px-1 sm:px-2 ${activeTab === "overview"
+                ? "text-[#629FFD] font-bold border-b-4 border-[#629FFD]"
+                : "text-[#6B6868] font-medium"
+                }`}
               onClick={() => setActiveTab("overview")}
             >
               Overview
             </button>
             <button
-              className={`text-[17px] sm:text-[20px] leading-[30px] font-inter  px-1 sm:px-2 ${
-                activeTab === "rental"
-                  ? "text-[#629FFD] font-bold border-b-4 border-[#629FFD]"
-                  : "text-[#6B6868] font-medium"
-              }`}
+              className={`text-[17px] sm:text-[20px] leading-[30px] font-inter  px-1 sm:px-2 ${activeTab === "rental"
+                ? "text-[#629FFD] font-bold border-b-4 border-[#629FFD]"
+                : "text-[#6B6868] font-medium"
+                }`}
               onClick={() => setActiveTab("rental")}
             >
               Rental
             </button>
             <button
-              className={`text-[17px] sm:text-[20px] leading-[30px] font-inter  px-1 sm:px-2 ${
-                activeTab === "reviews"
-                  ? "text-[#629FFD] font-bold border-b-4 border-[#629FFD]"
-                  : "text-[#6B6868] font-medium"
-              }`}
+              className={`text-[17px] sm:text-[20px] leading-[30px] font-inter  px-1 sm:px-2 ${activeTab === "reviews"
+                ? "text-[#629FFD] font-bold border-b-4 border-[#629FFD]"
+                : "text-[#6B6868] font-medium"
+                }`}
               onClick={() => setActiveTab("reviews")}
             >
               Reviews
@@ -221,9 +235,8 @@ const CarDetails = () => {
                   legendary Porsche 718 with the sports car of tomorrow.
                   <span
                     ref={contentRef}
-                    className={`block transition-max-height duration-500 ease-in-out overflow-hidden ${
-                      isExpanded ? "max-h-40" : "max-h-0"
-                    }`}
+                    className={`block transition-max-height duration-500 ease-in-out overflow-hidden ${isExpanded ? "max-h-40" : "max-h-0"
+                      }`}
                   >
                     This is the additional text that is shown when the user
                     clicks "Read More." You can add more detailed information
