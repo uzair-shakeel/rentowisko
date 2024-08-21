@@ -47,8 +47,8 @@ export default function HomePage() {
 
   return (
     <Layout>
-      <div className="flex gap-5">
-        <aside className="hidden md:block w-1/3 lg:w-1/4">
+      <div className="flex justify-end gap-5">
+        <aside className="hidden md:flex  left-0 fixed w-1/3 lg:w-1/4">
           <FilterSidebar />
         </aside>
         <main className="w-full md:w-2/3 lg:w-3/4 p-4">
@@ -76,61 +76,76 @@ export default function HomePage() {
             }}
           />
           <div className="my-6 space-x-3 hidden md:flex w-full">
-            <div class="relative w-full">
-              <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <img src="/distance.png" className="w-5 h-5" />
-              </div>
-              <select className="appearance-none outline-none w-full bg-white border border-gray-300 text-gray-600 py-3 pl-10 pr-8 rounded-lg shadow-sm focus:outline-none focus:border-blue-500">
-                <option>Range In KM</option>
-                <option>1-10 KM</option>
-                <option>10-20 KM</option>
-                <option>20-50 KM</option>
-              </select>
-              <div class="absolute inset-y-0 right-3 flex items-center px-2 text-gray-400">
-                <FaChevronDown />
-              </div>
+            {/* Range in KM */}
+            <div className="relative w-full">
+              <label className="w-full flex items-center">
+                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                  <img src="/distance.png" className="w-5 h-5" />
+                </div>
+                <select className="appearance-none outline-none w-full bg-white border border-gray-300 text-gray-600 py-3 pl-10 pr-8 rounded-lg shadow-sm focus:outline-none focus:border-blue-500 cursor-pointer">
+                  <option>Range In KM</option>
+                  <option>1-10 KM</option>
+                  <option>10-20 KM</option>
+                  <option>20-50 KM</option>
+                </select>
+                <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none text-gray-400">
+                  <FaChevronDown />
+                </div>
+              </label>
             </div>
-            <div class="relative w-full mx-8">
-              <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <img src="/car.png" className="w-5 h-5" />
-              </div>
-              <select className="appearance-none outline-none w-full bg-white border border-gray-300 text-gray-600 py-3 pl-10 pr-8 rounded-lg shadow-sm focus:outline-none focus:border-blue-500">
-                <option>Type</option>
-                <option>Type # 1</option>
-                <option>Type # 2</option>
-                <option>Type # 3</option>
-              </select>
-              <div class="absolute inset-y-0 right-3 flex items-center px-2 text-gray-400">
-                <FaChevronDown />
-              </div>
+
+            {/* Type */}
+            <div className="relative w-full mx-8">
+              <label className="w-full flex items-center">
+                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                  <img src="/car.png" className="w-5 h-5" />
+                </div>
+                <select className="appearance-none outline-none w-full bg-white border border-gray-300 text-gray-600 py-3 pl-10 pr-8 rounded-lg shadow-sm focus:outline-none focus:border-blue-500 cursor-pointer">
+                  <option>Type</option>
+                  <option>Type # 1</option>
+                  <option>Type # 2</option>
+                  <option>Type # 3</option>
+                </select>
+                <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none text-gray-400">
+                  <FaChevronDown />
+                </div>
+              </label>
             </div>
-            <div class="relative w-full">
-              <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <img src="/brand.png" className="w-5 h-5" />
-              </div>
-              <select className="appearance-none outline-none w-full bg-white border border-gray-300 text-gray-600 py-3 pl-10 pr-8 rounded-lg shadow-sm focus:outline-none focus:border-blue-500">
-                <option>Make</option>
-                <option>Make # 1</option>
-                <option>Make # 2</option>
-                <option>Make # 3</option>
-              </select>
-              <div class="absolute inset-y-0 right-3 flex items-center px-2 text-gray-400">
-                <FaChevronDown />
-              </div>
+
+            {/* Make */}
+            <div className="relative w-full">
+              <label className="w-full flex items-center">
+                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                  <img src="/brand.png" className="w-5 h-5" />
+                </div>
+                <select className="appearance-none outline-none w-full bg-white border border-gray-300 text-gray-600 py-3 pl-10 pr-8 rounded-lg shadow-sm focus:outline-none focus:border-blue-500 cursor-pointer">
+                  <option>Make</option>
+                  <option>Make # 1</option>
+                  <option>Make # 2</option>
+                  <option>Make # 3</option>
+                </select>
+                <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none text-gray-400">
+                  <FaChevronDown />
+                </div>
+              </label>
             </div>
-            <div class="relative w-full">
-              <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <img src="/model.png" className="w-5 h-5 my-auto" />
-              </div>
-              <select className="appearance-none outline-none w-full bg-white border border-gray-300 text-gray-600 py-3 pl-10 pr-8 rounded-lg shadow-sm focus:outline-none focus:border-blue-500">
-                <option>Model</option>
-                <option>Model # 1</option>
-                <option>Model # 2</option>
-                <option>Model # 3</option>
-              </select>
-              <div class="absolute inset-y-0 right-3 flex items-center px-2 text-gray-400">
-                <FaChevronDown />
-              </div>
+
+            {/* Model */}
+            <div className="relative w-full">
+              <label className="w-full flex items-center">
+                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                  <img src="/model.png" className="w-5 h-5 my-auto" />
+                </div>
+                <select className="appearance-none outline-none w-full bg-white border border-gray-300 text-gray-600 py-3 pl-10 pr-8 rounded-lg shadow-sm focus:outline-none focus:border-blue-500 cursor-pointer">
+                  <option>Model</option>
+                  <option>Model # 1</option>
+                  <option>Model # 2</option>
+                  <option>Model # 3</option>
+                </select>
+                <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none text-gray-400">
+                  <FaChevronDown />
+                </div>
+              </label>
             </div>
           </div>
 

@@ -20,6 +20,8 @@ const carInfoData = [
 
 const CarDetails = () => {
   const [showMoreInfo, setShowMoreInfo] = useState(false);
+
+  const [selectedImage, setSelectedImage] = useState("/details/car1.png");
   const [activeTab, setActiveTab] = useState("overview");
   const [isExpanded, setIsExpanded] = useState(false);
   const contentRef = useRef(null);
@@ -106,7 +108,7 @@ const CarDetails = () => {
           </div>
           <div className="max-w-[920px] mx-auto w-full px-5 my-[20px] hidden md:block">
             <Image
-              src="/car-s.svg"
+              src={selectedImage}
               alt="Main Car"
               width={900}
               height={376}
@@ -116,17 +118,20 @@ const CarDetails = () => {
               <img
                 src="/details/car2.png"
                 alt="Car 1"
-                className="md:w-[172px] md:h-[95px] w-[96px] h-[64px] object-cover rounded-[10px]"
+                onClick={() => setSelectedImage("/details/car2.png")}
+                className="md:w-[172px] md:h-[95px] w-[96px] h-[64px] cursor-pointer object-cover rounded-[10px]"
               />
               <img
                 src="/details/car3.png"
                 alt="Car 2"
-                className="md:w-[172px] md:h-[95px] w-[96px] h-[64px] object-cover rounded-[10px]"
+                onClick={() => setSelectedImage("/details/car3.png")}
+                className="md:w-[172px] md:h-[95px] w-[96px] h-[64px] cursor-pointer object-cover rounded-[10px]"
               />
               <img
                 src="/details/car4.png"
                 alt="Car 3"
-                className="md:w-[172px] md:h-[95px] w-[96px] h-[64px] object-cover rounded-[10px]"
+                onClick={() => setSelectedImage("/details/car4.png")}
+                className="md:w-[172px] md:h-[95px] w-[96px] h-[64px] cursor-pointer object-cover rounded-[10px]"
               />
               <button className="h-[92px] w-[58px] md:flex hidden flex-col items-center justify-center gap-1.5 text-white bg-[#629FFD] rounded-[7px] text-[11px] leading-[16px] font-bold font-inter uppercase">
                 <FaChevronRight size={25} />
