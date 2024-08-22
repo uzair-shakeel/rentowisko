@@ -204,7 +204,6 @@ const CarDetails = () => {
                   className="absolute top-4 text-white z-50 text-[30px] right-0"
                 >
                   <RxCross2 />
-
                 </button>
                 <div className="flex items-center justify-center h-full">
                   <ImageSlider images={images} initialIndex={currentIndex} />
@@ -212,8 +211,6 @@ const CarDetails = () => {
               </div>
             )}
           </div>
-
-
         </div>
 
         <div className="mt-7 border-2 border-[#6B686821] w-full rounded-[15px] bg-white px-5 sm:px-9 pt-[24px] pb-7">

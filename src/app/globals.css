@@ -26,8 +26,34 @@
   scrollbar-width: none; /* Firefox */
 }
 
-.space-x-6 > :not([hidden]) ~ :not([hidden]){
+.space-x-6 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: 0;
   margin-left: 0;
+}
+
+/* Custom styles for react-slick dots */
+.slick-dots {
+  top: 90%; /* Adjust position if needed */
+  position: fixed;
+}
+
+.slick-dots li {
+  width: 6px; /* Make the dots bigger */
+  height: 6px; /* Make the dots bigger */
+  color: white;
+  background-color: rgb(200, 200, 200);
+  border-radius: 100%;
+}
+
+.slick-dots li button {
+  width: 12px; /* Make the dots bigger */
+  height: 12px; /* Make the dots bigger */
+  border-radius: 50%; /* Make the dots round */
+  background-color: white; /* White color for the dots */
+  color: white;
+}
+
+.slick-dots li.slick-active button {
+  background-color: white;
 }

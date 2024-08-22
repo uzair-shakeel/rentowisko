@@ -1,7 +1,32 @@
+"use client";
 import React from "react";
 import Layout from "../components/SidebarLayout";
+import Slider from "react-slick";
+import Link from "next/link";
+
+// Import slick-carousel styles
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+const carouselImages = [
+  "/details/carousel.jpeg",
+  "/details/carousel.jpeg",
+  "/details/carousel.jpeg",
+  // Add more images if needed
+];
 
 const Signup = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    arrows: false,
+  };
+
   return (
     <Layout>
       <div className="flex flex-col min-h-[510px] md:flex-row">
@@ -76,12 +101,12 @@ const Signup = () => {
             Register
           </button>
 
-          <div className="flex items-center justify-between mt-6">
+          <div className="flex items-center justify-center mt-6">
             <p className="text-sm text-gray-600">
               Already have an account?{" "}
-              <a href="#" className="text-blue-500">
+              <Link href={"/login"} className="text-blue-500">
                 Sign in
-              </a>
+              </Link>
             </p>
           </div>
 
@@ -96,12 +121,21 @@ const Signup = () => {
         </div>
 
         {/* Right Side - Still Image */}
-        <div className="relative hidden w-full h-[510px] md:block md:w-1/2 ">
-          <img
-            src="/details/carousel.jpeg"
-            alt="Car Image"
-            className="object-cover w-full h-full"
-          />
+        <div className="relative hidden bg-white px-8 py-3  md:block md:w-1/2">
+          <Slider {...settings}>
+            {carouselImages.map((src, index) => (
+              <div
+                key={index}
+                className="w-full h-[500px] overflow-hidden rounded-3xl"
+              >
+                <img
+                  src={src}
+                  alt={`Carousel Image ${index + 1}`}
+                  className="object-cover w-full h-full"
+                />
+              </div>
+            ))}
+          </Slider>
         </div>
       </div>
     </Layout>
