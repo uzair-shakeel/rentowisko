@@ -16,6 +16,11 @@ const carInfoData = [
   { id: 7, src: "/electric.svg", alt: "Electric", text: "Electric Car" },
   { id: 8, src: "/electric.svg", alt: "Electric", text: "Electric Car" },
   { id: 9, src: "/electric.svg", alt: "Electric", text: "Electric Car" },
+  { id: 10, src: "/electric.svg", alt: "Electric", text: "Electric Car" },
+  { id: 11, src: "/electric.svg", alt: "Electric", text: "Electric Car" },
+  { id: 12, src: "/electric.svg", alt: "Electric", text: "Electric Car" },
+  { id: 13, src: "/electric.svg", alt: "Electric", text: "Electric Car" },
+  { id: 14, src: "/electric.svg", alt: "Electric", text: "Electric Car" },
 ];
 
 const CarDetails = () => {
@@ -47,7 +52,7 @@ const CarDetails = () => {
   }, []);
 
   const defaultBoxes = {
-    mobile: 6,
+    mobile: 5,
     desktop: 7,
   };
 
@@ -112,26 +117,44 @@ const CarDetails = () => {
               alt="Main Car"
               width={900}
               height={376}
-              className="w-full rounded-[15px]"
+              className={`w-full rounded-[15px]`}
             />
             <div className="flex justify-between gap-2 mt-12">
+              <img
+                src="/details/car1.png"
+                alt="Car 0"
+                onClick={() => setSelectedImage("/details/car1.png")}
+                className={`md:w-[172px] md:h-[95px] w-[96px] h-[64px] cursor-pointer object-cover rounded-[10px]  ${
+                  selectedImage === "/details/car1.png" &&
+                  "border-3 border-blue-500 p-[1px]"
+                }`}
+              />
               <img
                 src="/details/car2.png"
                 alt="Car 1"
                 onClick={() => setSelectedImage("/details/car2.png")}
-                className="md:w-[172px] md:h-[95px] w-[96px] h-[64px] cursor-pointer object-cover rounded-[10px]"
+                className={`md:w-[172px] md:h-[95px] w-[96px] h-[64px] cursor-pointer object-cover rounded-[10px]  ${
+                  selectedImage === "/details/car2.png" &&
+                  "border-3 border-blue-500 p-[1px]"
+                }`}
               />
               <img
                 src="/details/car3.png"
                 alt="Car 2"
                 onClick={() => setSelectedImage("/details/car3.png")}
-                className="md:w-[172px] md:h-[95px] w-[96px] h-[64px] cursor-pointer object-cover rounded-[10px]"
+                className={`md:w-[172px] md:h-[95px] w-[96px] h-[64px] cursor-pointer object-cover rounded-[10px]   ${
+                  selectedImage === "/details/car3.png" &&
+                  "border-3 border-blue-500 p-[1px]"
+                }`}
               />
               <img
                 src="/details/car4.png"
                 alt="Car 3"
                 onClick={() => setSelectedImage("/details/car4.png")}
-                className="md:w-[172px] md:h-[95px] w-[96px] h-[64px] cursor-pointer object-cover rounded-[10px]"
+                className={`md:w-[172px] md:h-[95px] w-[96px] h-[64px] cursor-pointer object-cover rounded-[10px]  ${
+                  selectedImage === "/details/car.png" &&
+                  "border-3 border-blue-500 p-[1px]"
+                }`}
               />
               <button className="h-[92px] w-[58px] md:flex hidden flex-col items-center justify-center gap-1.5 text-white bg-[#629FFD] rounded-[7px] text-[11px] leading-[16px] font-bold font-inter uppercase">
                 <FaChevronRight size={25} />
@@ -261,11 +284,11 @@ const CarDetails = () => {
             Car Info
           </h3>
           <div
-            className={`mt-5 flex flex-wrap gap-4 justify-between transition-max-h duration-300`}
+            className={`mt-5 grid grid-cols-5 md:grid-cols-7 gap-4 justify-between transition-max-h duration-300`}
           >
             {carInfoData.slice(0, boxesToShow).map((item) => (
               <div key={item.id} className="flex items-center flex-col gap-2">
-                <div className="sm:w-[70px] sm:h-[70px] w-[70px] h-[70px] rounded-lg bg-[#9FC5FF] flex items-center justify-center text-center">
+                <div className="w-full sm:h-[70px]  h-[90px] rounded-lg bg-[#9FC5FF] flex items-center justify-center text-center">
                   <Image
                     src={item.src}
                     alt={item.alt}
