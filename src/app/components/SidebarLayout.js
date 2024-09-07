@@ -4,6 +4,7 @@ import { FaHome, FaCar, FaUserCircle, FaCog } from "react-icons/fa";
 import { RiMenuFill } from "react-icons/ri";
 import { FaHeart } from "react-icons/fa";
 import { IoIosNotifications, IoMdSettings } from "react-icons/io";
+import Link from "next/link";
 
 const Layout = ({ children }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -111,10 +112,10 @@ const Layout = ({ children }) => {
             }`}
           >
             {isSidebarOpen && (
-              <span className="md:ml-4 flex gap-3">
+              <Link href="/profile" className="md:ml-4 flex gap-3">
                 <FaUserCircle className="text-xl text-[#629FFD]" />
                 Profile
-              </span>
+              </Link>
             )}
           </a>
           <a

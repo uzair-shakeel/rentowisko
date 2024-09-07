@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 // components/CarCard.jsx
 const CarCard = ({ car, index }) => {
   return (
@@ -38,13 +40,13 @@ const CarCard = ({ car, index }) => {
     // </div>
     <div key={index} className="border p-4 rounded-lg shadow-lg">
       <h3 className="text-[20px] lg:text-[23px] leading-[30px] font-bold mb-2">
-        {car.name}
+        {car.model}
       </h3>
       <p className="text-gray-600 text-[14px] lg:text-[16px] font-[700] leading-[21px]">
-        {car.type}
+        {car.carType}
       </p>
       <div className="flex py-3 space-x-2 mb-2">
-        {car.tags.map((tag, idx) => (
+        {car?.tags?.map((tag, idx) => (
           <span
             key={idx}
             className=" text-[#629FFD] cursor-pointer border-2 border-[#629FFD] text-[10px] lg:text-[12px] font-[700] leading-[15px] mr-2 px-2.5 py-0.5 rounded"
@@ -55,7 +57,7 @@ const CarCard = ({ car, index }) => {
       </div>
       <div className="h-40 w-full relative">
         <img
-          src={car.imageUrl}
+          src={"/car-img1.png"}
           alt={car.name}
           className="w-full h-auto max-h-24  object-cover mb-4"
         />
@@ -64,30 +66,34 @@ const CarCard = ({ car, index }) => {
       <div className="flex flex-col justify-between h-24">
         <div className="text-gray-700 mb-2 flex justify-between">
           <span className="flex gap-2">
-            <img src="/icons/gas-station.svg" /> {car.fuel}
+            <img src="/icons/gas-station.svg" /> {car?.gasType || "90L"}
           </span>
           <span className="flex gap-2">
-            <img src="/icons/Car.svg" /> {car.transmission}
+            <img src="/icons/Car.svg" /> {car?.horsepower || "manual"}
           </span>
           <span className="flex gap-2">
-            <img src="/icons/profile-2user.svg" /> {car.capacity}
+            <img src="/icons/profile-2user.svg" /> {car?.seats || "2 seats"}
           </span>
         </div>
         <div className=" flex justify-between items-end">
           <div>
             <p className="text-xl font-bold text-black ">
-              {car.price}{" "}
+              ${car.price1}{" "}
               <span className="text-[14px] text-[#90A3BF]">/ day</span>
             </p>
-            {car.oldPrice && (
+            {car.price2 && (
               <p className="line-through text-[14px] text-[#90A3BF] font-[700]">
-                {car.oldPrice}
+                {car.price2}
               </p>
             )}
           </div>
-          <button className="bg-[#629FFD] text-white px-4 py-2 rounded">
+
+          <Link
+            href={"/cars/cardetails"}
+            className="bg-[#629FFD] text-white px-4 py-2 rounded"
+          >
             Rent Now
-          </button>
+          </Link>
         </div>
       </div>
     </div>

@@ -6,44 +6,37 @@ import "./car.css";
 import { Input, Select, SelectItem } from "@nextui-org/react";
 import { FaLocationDot, FaChevronDown } from "react-icons/fa6";
 import { VscSettings } from "react-icons/vsc";
-import { useState } from "react";
-
-const cars = [
-  {
-    name: "Koenigsegg",
-    type: "Sport",
-    tags: ["Wedding", "Long Term"],
-    fuel: "90L",
-    transmission: "Manual",
-    capacity: "2 People",
-    price: "$99.00",
-    imageUrl: "/car-img1.png", // Update this with the correct path
-  },
-  {
-    name: "Nissan GT-R",
-    type: "Sport",
-    tags: ["Long Term"],
-    fuel: "80L",
-    transmission: "Manual",
-    capacity: "2 People",
-    oldPrice: "$100.00/day",
-    price: "$80.00",
-    imageUrl: "/car-img2.png", // Update this with the correct path
-  },
-  {
-    name: "Rolls-Royce",
-    type: "Sport",
-    tags: ["Wedding"],
-    fuel: "70L",
-    transmission: "Manual",
-    capacity: "4 People",
-    price: "$96.00",
-    imageUrl: "/car-img3.png", // Update this with the correct path
-  },
-];
+import { useState, useEffect } from "react";
+import { BaseURL } from "@/utils/config";
+import axios from "axios";
 
 export default function HomePage() {
   const [isFilteropen, setIsFilterOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [deals, setDeals] = useState([]);
+
+  useEffect(() => {
+    const fetchCars = async () => {
+      try {
+        const response = await axios.get(`${BaseURL}/all-cars`);
+        const data = response.data;
+
+        if (response.status == 200) {
+          setDeals(data);
+        }
+      } catch (error) {
+        console.error("Error fetching car data:", error);
+      } finally {
+        setLoading(false); // Stop loading spinner
+      }
+    };
+
+    fetchCars();
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>; // Show loading while fetching data
+  }
 
   return (
     <Layout>
@@ -179,7 +172,7 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {cars.concat(cars, cars).map((car, index) => (
+            {deals.map((car, index) => (
               <CarCard key={index} car={car} index={index} />
             ))}
           </div>

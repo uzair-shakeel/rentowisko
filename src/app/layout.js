@@ -4,6 +4,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 import { NextUIProvider } from "@nextui-org/react";
 import Layout from "./components/SidebarLayout";
+import { Toaster } from "react-hot-toast";
 
 export const metadata = {
   title: "Rentowisko",
@@ -14,6 +15,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <NextUIProvider>
+        <Toaster position="top-right" reverseOrder={false} />
         <body className={inter.className}>{children}</body>
       </NextUIProvider>
     </html>

@@ -1,8 +1,10 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Layout from "../components/SidebarLayout";
 import Slider from "react-slick";
 import Link from "next/link";
+import axios from "axios";
+import { toast } from "react-hot-toast";
 
 // Import slick-carousel styles
 import "slick-carousel/slick/slick.css";
@@ -16,6 +18,10 @@ const carouselImages = [
 ];
 
 const Login = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+
   const settings = {
     dots: true,
     infinite: true,
@@ -25,6 +31,40 @@ const Login = () => {
     autoplay: true,
     autoplaySpeed: 3000,
     arrows: false,
+  };
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setLoading(true); // Set loading state
+    toast.dismiss(); // Clear any previous toasts
+
+    try {
+      const response = await axios.post("/api/login", {
+        username,
+        password,
+      });
+
+      // If login is successful
+      const { token } = response.data;
+
+      // Display success message
+      toast.success("Login successful!");
+
+      // Store the token and redirect
+      localStorage.setItem("token", token);
+      setTimeout(() => {
+        window.location.href = "/dashboard"; // Redirect after a small delay
+      }, 1000);
+    } catch (err) {
+      // Handle login error
+      if (err.response && err.response.data && err.response.data.message) {
+        toast.error(err.response.data.message); // Show error message from the backend
+      } else {
+        toast.error("Something went wrong. Please try again."); // General error message
+      }
+    } finally {
+      setLoading(false); // Stop loading
+    }
   };
 
   return (
@@ -39,55 +79,67 @@ const Login = () => {
             Login
           </h2>
 
-          <div className="mt-6">
-            <label
-              className="block mb-2 text-sm text-gray-600"
-              htmlFor="username"
-            >
-              Username
-            </label>
-            <input
-              className="w-full px-4 py-2 text-sm bg-gray-100 border rounded-md focus:border-blue-500 focus:bg-white focus:outline-none"
-              type="text"
-              id="username"
-              placeholder="Your name"
-            />
-          </div>
-
-          <div className="mt-6">
-            <label
-              className="block mb-2 text-sm text-gray-600"
-              htmlFor="password"
-            >
-              Password
-            </label>
-            <input
-              className="w-full px-4 py-2 text-sm bg-gray-100 border rounded-md focus:border-blue-500 focus:bg-white focus:outline-none"
-              type="password"
-              id="password"
-              placeholder="Your password"
-            />
-          </div>
-
-          <div className="flex items-center justify-between mt-6">
-            <a href="#" className="text-sm text-blue-500">
-              Forgot Password?
-            </a>
-            <div className="flex items-center">
-              <input
-                type="checkbox"
-                id="rememberMe"
-                className="w-4 h-4 mr-2 text-blue-500 border-gray-300 rounded focus:ring-blue-400 focus:outline-none"
-              />
-              <label htmlFor="rememberMe" className="text-sm text-gray-600">
-                Remember me
+          <form onSubmit={handleLogin}>
+            <div className="mt-6">
+              <label
+                className="block mb-2 text-sm text-gray-600"
+                htmlFor="username"
+              >
+                Username
               </label>
+              <input
+                className="w-full px-4 py-2 text-sm bg-gray-100 border rounded-md focus:border-blue-500 focus:bg-white focus:outline-none"
+                type="text"
+                id="username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                placeholder="Your name"
+                required
+              />
             </div>
-          </div>
 
-          <button className="w-full px-4 py-2 mt-6 text-white bg-blue-500 rounded-md hover:bg-blue-600">
-            Login
-          </button>
+            <div className="mt-6">
+              <label
+                className="block mb-2 text-sm text-gray-600"
+                htmlFor="password"
+              >
+                Password
+              </label>
+              <input
+                className="w-full px-4 py-2 text-sm bg-gray-100 border rounded-md focus:border-blue-500 focus:bg-white focus:outline-none"
+                type="password"
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Your password"
+                required
+              />
+            </div>
+
+            <div className="flex items-center justify-between mt-6">
+              <a href="#" className="text-sm text-blue-500">
+                Forgot Password?
+              </a>
+              <div className="flex items-center">
+                <input
+                  type="checkbox"
+                  id="rememberMe"
+                  className="w-4 h-4 mr-2 text-blue-500 border-gray-300 rounded focus:ring-blue-400 focus:outline-none"
+                />
+                <label htmlFor="rememberMe" className="text-sm text-gray-600">
+                  Remember me
+                </label>
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              className="w-full px-4 py-2 mt-6 text-white bg-blue-500 rounded-md hover:bg-blue-600"
+              disabled={loading}
+            >
+              {loading ? "Logging in..." : "Login"}
+            </button>
+          </form>
 
           <div className="flex items-center justify-center mt-6">
             <p className="text-sm text-gray-600">

@@ -1,45 +1,78 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import "../globals.css";
 import Image from "next/image";
+import { BaseURL } from "@/utils/config";
+import DUmmyImage from "../../../public/car-img3.png";
+import Link from "next/link";
 
-const deals = [
+// Static fallback deals
+const fallbackDeals = [
   {
-    name: "Koenigsegg",
-    type: "Sport",
+    model: "Koenigsegg",
+    carType: "Sport",
     tags: ["Wedding", "Long Term"],
-    fuel: "90L",
-    transmission: "Manual",
-    capacity: "2 People",
-    price: "$99.00",
-    imageUrl: "/car-img1.png", // Update this with the correct path
+    gasType: "90L",
+    horsepower: "Manual",
+    seats: "2 People",
+    price1: "$99.00",
+    first_image: "/car-img1.png",
   },
   {
-    name: "Nissan GT-R",
-    type: "Sport",
+    model: "Nissan GT-R",
+    carType: "Sport",
     tags: ["Long Term"],
-    fuel: "80L",
-    transmission: "Manual",
-    capacity: "2 People",
-    oldPrice: "$100.00/day",
-    price: "$80.00",
-    imageUrl: "/car-img2.png", // Update this with the correct path
+    gasType: "80L",
+    horsepower: "Manual",
+    seats: "2 People",
+    price2: "$100.00/day",
+    price1: "$80.00",
+    first_image: "/car-img2.png",
   },
   {
-    name: "Rolls-Royce",
-    type: "Sport",
+    model: "Rolls-Royce",
+    carType: "Sport",
     tags: ["Wedding"],
-    fuel: "70L",
-    transmission: "Manual",
-    capacity: "4 People",
-    price: "$96.00",
-    imageUrl: "/car-img3.png", // Update this with the correct path
+    gasType: "70L",
+    horsepower: "Manual",
+    seats: "4 People",
+    price1: "$96.00",
+    first_image: "/car-img3.png",
   },
 ];
 
 const Deal = () => {
+  const [deals, setDeals] = useState(fallbackDeals);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchCars = async () => {
+      try {
+        const response = await axios.get(`${BaseURL}/all-cars`);
+        const data = response.data;
+        console.log(response);
+
+        if (response.status == 200) {
+          setDeals(data);
+        }
+      } catch (error) {
+        console.error("Error fetching car data:", error);
+      } finally {
+        setLoading(false); // Stop loading spinner
+      }
+    };
+
+    fetchCars();
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>; // Show loading while fetching data
+  }
+
   return (
-    <div className="bg-white">
-      <div className="max-w-[1270px] mx-auto lg:px-[2%] py-8 lg:py-20">
+    <div classmodel="bg-white">
+      <div classmodel="max-w-[1270px] mx-auto lg:px-[2%] py-8 lg:py-20">
         <h2 className="text-[15px] md:text-[16px] lg:text-[18px] text-[#8F8C8C] font-[700] leading-[25px] text-center md:mb-3">
           POPULAR RENTAL DEALS
         </h2>
@@ -59,13 +92,13 @@ const Deal = () => {
             {deals.map((deal, index) => (
               <div key={index} className="border p-4 rounded-lg shadow-lg">
                 <h3 className="text-[20px] lg:text-[23px] leading-[30px] font-bold mb-2">
-                  {deal.name}
+                  {deal?.model}
                 </h3>
                 <p className="text-gray-600 text-[14px] lg:text-[16px] font-[700] leading-[21px]">
-                  {deal.type}
+                  {deal?.carType}
                 </p>
                 <div className="flex py-3 space-x-2 mb-2">
-                  {deal.tags.map((tag, idx) => (
+                  {deal?.tags?.map((tag, idx) => (
                     <span
                       key={idx}
                       className=" text-[#629FFD] cursor-pointer border-2 border-[#629FFD] text-[10px] lg:text-[12px] font-[700] leading-[15px] mr-2 px-2.5 py-0.5 rounded"
@@ -76,8 +109,8 @@ const Deal = () => {
                 </div>
                 <div className="h-40 w-full relative">
                   <img
-                    src={deal.imageUrl}
-                    alt={deal.name}
+                    src={"/car-img1.png"}
+                    alt={deal?.model}
                     className="w-full h-auto max-h-24  object-cover mb-4"
                   />
                   <span className="absolute h-full w-full gradient bottom-0"></span>
@@ -85,267 +118,44 @@ const Deal = () => {
                 <div className="flex flex-col justify-between h-24">
                   <div className="text-gray-700 mb-2 flex justify-between">
                     <span className="flex gap-2">
-                      <img src="/icons/gas-station.svg" /> {deal.fuel}
+                      <img src="/icons/gas-station.svg" />{" "}
+                      {deal?.gasType || "90L"}
                     </span>
                     <span className="flex gap-2">
-                      <img src="/icons/Car.svg" /> {deal.transmission}
+                      <img src="/icons/Car.svg" />{" "}
+                      {deal?.horsepower || "manual"}
                     </span>
                     <span className="flex gap-2">
-                      <img src="/icons/profile-2user.svg" /> {deal.capacity}
+                      <img src="/icons/profile-2user.svg" />{" "}
+                      {deal?.seats || "2 seats"}
                     </span>
                   </div>
                   <div className=" flex justify-between items-end">
                     <div>
                       <p className="text-xl font-bold text-black ">
-                        {deal.price}{" "}
+                        ${deal.price1}{" "}
                         <span className="text-[14px] text-[#90A3BF]">
                           / day
                         </span>
                       </p>
-                      {deal.oldPrice && (
+                      {deal.price2 && (
                         <p className="line-through text-[14px] text-[#90A3BF] font-[700]">
-                          {deal.oldPrice}
+                          {deal.price2}
                         </p>
                       )}
                     </div>
-                    <button className="bg-[#629FFD] text-white px-4 py-2 rounded">
+                    <Link
+                      href={"/cars/cardetails"}
+                      className="bg-[#629FFD] text-white px-4 py-2 rounded"
+                    >
                       Rent Now
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>
             ))}
           </div>
-
-          <div className="mt-5 flex flex-wrap gap-10 md:hidden">
-            <div className="max-w-[327px] p-2 w-full flex flex-col gap-3">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h2 className="text-[#1A202C] text-base tracking-[-0.02em] font-semibold">
-                    All New Rush
-                  </h2>
-                  <h4 className="text-[#90A3BF] text-[12px] leading-[15.12px] tracking-[-0.02em] font-medium">
-                    SUV
-                  </h4>
-                </div>
-                <Image src="/heart.svg" alt="heart" width={16} height={16} />
-              </div>
-
-              <div className="pt-3 pb-8 flex items-end justify-between bg-white">
-                <div className="relative h-full">
-                  <Image src="/car1.svg" alt="car1" width={142} height={64} />
-                  <span className=" absolute bottom-0 inset-0 bg-custom  h-full w-full"></span>
-                </div>
-
-                <div className="flex flex-col gap-3">
-                  <div className="flex items-center gap-1">
-                    <Image
-                      src="/gas-station.svg"
-                      alt="Gas"
-                      width={14}
-                      height={14}
-                    />
-                    <h4 className="text-[#90A3BF] text-[12px] leading-[15.12px] tracking-[-0.02em] font-medium">
-                      70L
-                    </h4>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Image
-                      src="/car-icon.svg"
-                      alt="car"
-                      width={14}
-                      height={14}
-                    />
-                    <h4 className="text-[#90A3BF] text-[12px] leading-[15.12px] tracking-[-0.02em] font-medium">
-                      Manual
-                    </h4>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Image
-                      src="/profile-user.svg"
-                      alt="profile"
-                      width={14}
-                      height={14}
-                    />
-                    <h4 className="text-[#90A3BF] text-[12px] leading-[15.12px] tracking-[-0.02em] font-medium">
-                      6 People
-                    </h4>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex items-center justify-between">
-                <div>
-                  <h2 className="text-[#1A202C] text-[16px] leading-[20.16px] tracking-[-0.01em] font-semibold">
-                    $72.00/{" "}
-                    <span className="text-[12px] leading-[15px] tracking-[-0.01em] font-medium">
-                      day
-                    </span>
-                  </h2>
-                  <h4 className="text-[#90A3BF] text-[12px] leading-[15.12px] tracking-[-0.01em] font-medium">
-                    $80.00
-                  </h4>
-                </div>
-                <div>
-                  <button className="bg-[#629FFD] rounded w-[100px] h-[36px] text-white text-[12px] leading-[15.12px] tracking-[-0.02em] font-semibold">
-                    Rental Now
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div className="max-w-[327px] p-2 w-full flex flex-col gap-3">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h2 className="text-[#1A202C] text-base tracking-[-0.02em] font-semibold">
-                    All New Rush
-                  </h2>
-                  <h4 className="text-[#90A3BF] text-[12px] leading-[15.12px] tracking-[-0.02em] font-medium">
-                    SUV
-                  </h4>
-                </div>
-                <Image src="/heart.svg" alt="heart" width={16} height={16} />
-              </div>
-
-              <div className="pt-3 pb-8 flex items-end justify-between bg-white">
-                <div className="relative h-full">
-                  <Image src="/car1.svg" alt="car1" width={142} height={64} />
-                  <span className=" absolute bottom-0 inset-0 bg-custom  h-full w-full"></span>
-                </div>
-
-                <div className="flex flex-col gap-3">
-                  <div className="flex items-center gap-1">
-                    <Image
-                      src="/gas-station.svg"
-                      alt="Gas"
-                      width={14}
-                      height={14}
-                    />
-                    <h4 className="text-[#90A3BF] text-[12px] leading-[15.12px] tracking-[-0.02em] font-medium">
-                      70L
-                    </h4>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Image
-                      src="/car-icon.svg"
-                      alt="car"
-                      width={14}
-                      height={14}
-                    />
-                    <h4 className="text-[#90A3BF] text-[12px] leading-[15.12px] tracking-[-0.02em] font-medium">
-                      Manual
-                    </h4>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Image
-                      src="/profile-user.svg"
-                      alt="profile"
-                      width={14}
-                      height={14}
-                    />
-                    <h4 className="text-[#90A3BF] text-[12px] leading-[15.12px] tracking-[-0.02em] font-medium">
-                      6 People
-                    </h4>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex items-center justify-between">
-                <div>
-                  <h2 className="text-[#1A202C] text-[16px] leading-[20.16px] tracking-[-0.01em] font-semibold">
-                    $72.00/{" "}
-                    <span className="text-[12px] leading-[15px] tracking-[-0.01em] font-medium">
-                      day
-                    </span>
-                  </h2>
-                  <h4 className="text-[#90A3BF] text-[12px] leading-[15.12px] tracking-[-0.01em] font-medium">
-                    $80.00
-                  </h4>
-                </div>
-                <div>
-                  <button className="bg-[#629FFD] rounded w-[100px] h-[36px] text-white text-[12px] leading-[15.12px] tracking-[-0.02em] font-semibold">
-                    Rental Now
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div className="max-w-[327px] p-2 w-full flex flex-col gap-3">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h2 className="text-[#1A202C] text-base tracking-[-0.02em] font-semibold">
-                    All New Rush
-                  </h2>
-                  <h4 className="text-[#90A3BF] text-[12px] leading-[15.12px] tracking-[-0.02em] font-medium">
-                    SUV
-                  </h4>
-                </div>
-                <Image src="/heart.svg" alt="heart" width={16} height={16} />
-              </div>
-
-              <div className="pt-3 pb-8 flex items-end justify-between bg-white">
-                <div className="relative h-full">
-                  <Image src="/car1.svg" alt="car1" width={142} height={64} />
-                  <span className=" absolute bottom-0 inset-0 bg-custom  h-full w-full"></span>
-                </div>
-
-                <div className="flex flex-col gap-3">
-                  <div className="flex items-center gap-1">
-                    <Image
-                      src="/gas-station.svg"
-                      alt="Gas"
-                      width={14}
-                      height={14}
-                    />
-                    <h4 className="text-[#90A3BF] text-[12px] leading-[15.12px] tracking-[-0.02em] font-medium">
-                      70L
-                    </h4>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Image
-                      src="/car-icon.svg"
-                      alt="car"
-                      width={14}
-                      height={14}
-                    />
-                    <h4 className="text-[#90A3BF] text-[12px] leading-[15.12px] tracking-[-0.02em] font-medium">
-                      Manual
-                    </h4>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Image
-                      src="/profile-user.svg"
-                      alt="profile"
-                      width={14}
-                      height={14}
-                    />
-                    <h4 className="text-[#90A3BF] text-[12px] leading-[15.12px] tracking-[-0.02em] font-medium">
-                      6 People
-                    </h4>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex items-center justify-between">
-                <div>
-                  <h2 className="text-[#1A202C] text-[16px] leading-[20.16px] tracking-[-0.01em] font-semibold">
-                    $72.00/{" "}
-                    <span className="text-[12px] leading-[15px] tracking-[-0.01em] font-medium">
-                      day
-                    </span>
-                  </h2>
-                  <h4 className="text-[#90A3BF] text-[12px] leading-[15.12px] tracking-[-0.01em] font-medium">
-                    $80.00
-                  </h4>
-                </div>
-                <div>
-                  <button className="bg-[#629FFD] rounded w-[100px] h-[36px] text-white text-[12px] leading-[15.12px] tracking-[-0.02em] font-semibold">
-                    Rental Now
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+          {/* Add mobile view as per the original code */}
         </div>
       </div>
     </div>
